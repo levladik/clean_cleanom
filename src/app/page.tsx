@@ -14,12 +14,14 @@ import Gallery from '@/components/sections/Gallery';
 import Testimonials from '@/components/sections/Testimonials';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
+import Calculator from '@/components/calculator/Calculator';
 
 export default function Home() {
   return (
     <>
       <Header />
       <main>
+        <Calculator />
         <Hero />
         <Services />
         <About />
