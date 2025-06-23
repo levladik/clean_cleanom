@@ -5,10 +5,11 @@
  */
 
 import { services } from '@/lib/calculator/pricing'
+import { ServiceType } from '@/lib/calculator/types';
 import React from 'react'
 
 interface ServiceSelectorProps {
-  setSelectedService?: (service: string) => void
+  setSelectedService?: (service: ServiceType) => void
 }
 
 export default function ServiceSelector({ setSelectedService }: ServiceSelectorProps) {

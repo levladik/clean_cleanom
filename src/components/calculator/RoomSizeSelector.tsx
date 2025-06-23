@@ -9,10 +9,10 @@
 
 interface RoomSizeSelectorProps {
   setRoomSize?: (size: string) => void
-  finalPrice?: number
+  basePrice?: number
 }
 
-export const RoomSizeSelector = ({ setRoomSize, finalPrice }: RoomSizeSelectorProps) => {
+export const RoomSizeSelector = ({ setRoomSize, basePrice }: RoomSizeSelectorProps) => {
   return (
     <div className='w-fit m-auto'>
       <div className='flex items-center justify-center gap-4 my-4'>
@@ -28,7 +28,7 @@ export const RoomSizeSelector = ({ setRoomSize, finalPrice }: RoomSizeSelectorPr
         </select>
         <p className='text-2xl'>m<sup>2</sup></p>
 
-        <div className='text-3xl text-bold'><span className='text-primary'>{finalPrice}</span> DIN</div>
+        <div className='text-3xl text-bold'><span className='text-primary'>{basePrice}</span> DIN</div>
       </div>
     </div>
   );
