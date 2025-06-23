@@ -1,41 +1,33 @@
-'use client'
+'use client';
 
 /**
  * RoomSizeSelector Component
- * 
+ *
  * A range slider component for selecting room sizes in square meters.
  */
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export const RoomSizeSelector = () => {
-  const [selectedService, setSelectedService] = useState('basic')
+  const [selectedService, setSelectedService] = useState(50);
   return (
-    <div className='calculator m-auto max-w-md'>
-      <div className='w-full max-w-xs'>
-        <input
-          type='range'
-          min={0}
-          max='100'
-          value={selectedService}
+    <div className='m-auto max-w-md'>
+      <p className='text-center text-3xl'>Сколько у вас квадратных метров?</p>
+      <div className='flex items-center justify-center gap-4 my-4'>
+        <select
+          className='select select-primary select-lg w-min'
           onChange={(e) => setSelectedService(e.target.value)}
-          className='range range-primary'
-        />
-        <div className='flex justify-between px-2.5 mt-2 text-xs'>
-          <span>|</span>
-          <span>|</span>
-          <span>|</span>
-          <span>|</span>
-          <span>|</span>
-        </div>
-        <div className='flex justify-between px-2.5 mt-2 text-xs'>
-          <span>0-50</span>
-          <span>50-70</span>
-          <span>70-100</span>
-          <span>100-200</span>
-          <span>200+</span>
-        </div>
+        >
+          <option>0-50</option>
+          <option>50-70</option>
+          <option>70-100</option>
+          <option>100-200</option>
+          <option>200+</option>
+        </select>
+        <p className='text-2xl'>m<sup>2</sup></p>
+
+        <div className='text-3xl text-bold'><span className='text-primary'>10 000</span> DIN</div>
       </div>
     </div>
-  )
-}
+  );
+};
