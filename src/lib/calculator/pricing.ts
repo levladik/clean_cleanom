@@ -15,7 +15,8 @@ export const services: ServicePricing[] = [
       { minArea: 0, maxArea: 50, basePrice: 5000 },
       { minArea: 50, maxArea: 70, basePrice: 6000 },
       { minArea: 70, maxArea: 100, basePrice: 7000 },
-      { minArea: 100, maxArea: 200, basePrice: 7000, pricePerExtraM2: 500 }
+      { minArea: 100, maxArea: 200, basePrice: 7000 },
+      { minArea: 200, maxArea: Infinity, basePrice: 7000, pricePerExtraM2: 500 }
     ],
     minPrice: 5000,
     includedServices: []
@@ -27,7 +28,8 @@ export const services: ServicePricing[] = [
       { minArea: 0, maxArea: 50, basePrice: 11000 },
       { minArea: 50, maxArea: 70, basePrice: 13000 },
       { minArea: 70, maxArea: 100, basePrice: 15000 },
-      { minArea: 100, maxArea: 200, basePrice: 7000, pricePerExtraM2: 1000 }
+      { minArea: 100, maxArea: 200, basePrice: 7000 },
+      { minArea: 200, maxArea: Infinity, basePrice: 7000, pricePerExtraM2: 1000 }
     ],
     minPrice: 11000,
     includedServices: ['window_cleaning', 'mold']
@@ -39,7 +41,8 @@ export const services: ServicePricing[] = [
       { minArea: 0, maxArea: 50, basePrice: 15000 },
       { minArea: 50, maxArea: 70, basePrice: 18000 },
       { minArea: 70, maxArea: 100, basePrice: 20000 },
-      { minArea: 100, maxArea: 200, basePrice: 7000, pricePerExtraM2: 1000 }
+      { minArea: 100, maxArea: 200, basePrice: 7000 },
+      { minArea: 200, maxArea: Infinity, basePrice: 7000, pricePerExtraM2: 1000 }
     ],
     minPrice: 15000,
     includedServices: ['window_cleaning', 'mold']
