@@ -106,15 +106,16 @@ export const additionalServices: AdditionalService[] = [
 /**
  * Calculate base price for a service based on area
  */
+//TODO: Fix area type and min\maxArea logic
 export function calculateBasePrice(serviceId: ServiceType, area: number): number {
-  const service = services.find(s => s.id === serviceId);
+  const service = services.find(service => service.id === serviceId);
   
   if (!service) {
     throw new Error(`Service with ID ${serviceId} not found`);
   }
   
   // Find the appropriate tier for the given area
-  const tier = service.tiers.find(t => area >= t.minArea && area < t.maxArea);
+  const tier = service.tiers.find(tier => area >= tier.minArea && area < tier.maxArea);
   
   if (!tier) {
     // If area is beyond the defined tiers, use the last tier
