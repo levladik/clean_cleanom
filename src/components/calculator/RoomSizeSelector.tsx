@@ -1,4 +1,11 @@
 'use client'
+
+/**
+ * RoomSizeSelector Component
+ * 
+ * A range slider component for selecting room sizes in square meters.
+ */
+
 import React, { useState } from 'react'
 
 export const RoomSizeSelector = () => {
