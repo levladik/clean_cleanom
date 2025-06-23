@@ -1,15 +1,37 @@
 /**
  * ServiceSelector Component
- * 
+ *
  * Component for selecting a cleaning service in the calculator
  */
 
-import React from 'react';
+import { services } from '@/lib/calculator/pricing'
+import React from 'react'
 
-export default function ServiceSelector() {
+interface ServiceSelectorProps {
+  setSelectedService?: (service: string) => void
+}
+
+export default function ServiceSelector({ setSelectedService }: ServiceSelectorProps) {
+  const serviceOptions = services;
   return (
-    <div className="service-selector">
-      {/* ServiceSelector content will be added by the user */}
+    <div className='service-selector w-fit m-auto'>
+      <div
+        role='tablist'
+        className='tabs tabs-lift'
+      >
+        {serviceOptions.map((service) => {
+          return (
+            <a
+              role='tab'
+              className='tab'
+              key={service.id}
+              onClick={() => {setSelectedService?.(service.id)}}
+            >
+              {service.name}
+            </a>
+          )
+        })}
+      </div>
     </div>
-  );
+  )
 }
