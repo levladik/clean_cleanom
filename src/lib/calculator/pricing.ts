@@ -6,60 +6,43 @@
 
 import { ServiceType, ServicePricing, AdditionalService, PriceSummary, CalculatorState } from './types';
 
-// Main services pricing data
-export const services: ServicePricing[] = [
-  {
-    id: ServiceType.BASIC,
-    name: 'Базовая уборка',
-    tiers: [
-      { minArea: 0, maxArea: 50, basePrice: 5000 },
-      { minArea: 50, maxArea: 70, basePrice: 6000 },
-      { minArea: 70, maxArea: 100, basePrice: 7000 },
-      { minArea: 100, maxArea: 200, basePrice: 7000 },
-      { minArea: 200, maxArea: Infinity, basePrice: 7000, pricePerExtraM2: 500 }
-    ],
-    minPrice: 5000,
-    includedServices: []
-  },
-  {
-    id: ServiceType.GENERAL,
-    name: 'Генеральная уборка',
-    tiers: [
-      { minArea: 0, maxArea: 50, basePrice: 11000 },
-      { minArea: 50, maxArea: 70, basePrice: 13000 },
-      { minArea: 70, maxArea: 100, basePrice: 15000 },
-      { minArea: 100, maxArea: 200, basePrice: 7000 },
-      { minArea: 200, maxArea: Infinity, basePrice: 7000, pricePerExtraM2: 1000 }
-    ],
-    minPrice: 11000,
-    includedServices: ['window_cleaning', 'mold']
-  },
-  {
-    id: ServiceType.POST_REPAIR,
-    name: 'Уборка после ремонта',
-    tiers: [
-      { minArea: 0, maxArea: 50, basePrice: 15000 },
-      { minArea: 50, maxArea: 70, basePrice: 18000 },
-      { minArea: 70, maxArea: 100, basePrice: 20000 },
-      { minArea: 100, maxArea: 200, basePrice: 7000 },
-      { minArea: 200, maxArea: Infinity, basePrice: 7000, pricePerExtraM2: 1000 }
-    ],
-    minPrice: 15000,
-    includedServices: ['window_cleaning', 'mold']
-  },
-  {
-    id: ServiceType.WINDOW_CLEANING,
-    name: 'Мытье окон',
-    tiers: [
-      { minArea: 0, maxArea: 50, basePrice: 2000 },
-      { minArea: 50, maxArea: 70, basePrice: 3000 },
-      { minArea: 70, maxArea: 100, basePrice: 4000 },
-      { minArea: 100, maxArea: 200, basePrice: 6000 }
-    ],
-    minPrice: 4000,
-    includedServices: []
-  }
+// Main areas
+export const AREA_TIERS = [
+  { min: 0, max: 50, label: '0-50v' },
+  { min: 51, max: 70, label: '51-70' },
+  { min: 71, max: 100, label: '71-100' },
+  { min: 101, max: 200, label: '101-200' },
+  { min: 201, max: Infinity, label: '200+' }
 ];
+
+function createServicePricing(
+  id: ServiceType,
+  name: string,
+  basePrices: number[],
+  minPrice: number,
+  pricePerExtraM2: number[],
+  includedServices: string[] = []
+): ServicePricing {
+  
+  return {
+    id,
+    name,
+    tiers: AREA_TIERS.map((tier, index) => ({
+      ...tier,
+      basePrice: basePrices[index],
+      pricePerExtraM2: pricePerExtraM2[index]
+    })),
+    minPrice,
+    includedServices
+  };
+}
+
+export const services: ServicePricing[] = [
+  createServicePricing(ServiceType.BASIC, 'Базовая уборка', [5000, 6000, 7000, 7000, 7000], 5000, [0, 0, 0, 0, 500]),
+  createServicePricing(ServiceType.GENERAL, 'Генеральная уборка', [11000, 13000, 15000, 7000, 7000], 11000, [0, 0, 0, 0, 1000], ['window_cleaning', 'mold']),
+  createServicePricing(ServiceType.POST_REPAIR, 'Уборка после ремонта', [15000, 18000, 20000, 7000, 7000], 15000, [0, 0, 0, 0, 1000], ['window_cleaning', 'mold']),
+  createServicePricing(ServiceType.WINDOW_CLEANING, 'Мытье окон', [2000, 3000, 4000, 6000, 0], 4000, [0, 0, 0, 0, 0])
+]
 
 // Additional services pricing data
 export const additionalServices: AdditionalService[] = [
@@ -106,7 +89,6 @@ export const additionalServices: AdditionalService[] = [
 /**
  * Calculate base price for a service based on area
  */
-//TODO: Fix area type and min\maxArea logic
 export function calculateBasePrice(serviceId: ServiceType, area: number): number {
   const service = services.find(service => service.id === serviceId);
   
@@ -115,16 +97,16 @@ export function calculateBasePrice(serviceId: ServiceType, area: number): number
   }
   
   // Find the appropriate tier for the given area
-  const tier = service.tiers.find(tier => area >= tier.minArea && area < tier.maxArea);
+  const tier = service.tiers.find((tier) => area === tier.max);
   
   if (!tier) {
     // If area is beyond the defined tiers, use the last tier
-    if (area >= service.tiers[service.tiers.length - 1].minArea) {
+    if (area >= service.tiers[service.tiers.length - 1].min) {
       const lastTier = service.tiers[service.tiers.length - 1];
       
-      // If the tier has a price per extra m2, calculate the additional cost
-      if (lastTier.pricePerExtraM2 && area > lastTier.minArea) {
-        const extraArea = area - lastTier.minArea;
+      // Calculate the additional cost for areas beyond the base tier
+      if (area > lastTier.min) {
+        const extraArea = area - lastTier.min;
         return lastTier.basePrice + (extraArea * lastTier.pricePerExtraM2);
       }
       
@@ -135,9 +117,9 @@ export function calculateBasePrice(serviceId: ServiceType, area: number): number
     return service.tiers[0].basePrice;
   }
   
-  // If the tier has a price per extra m2, calculate the additional cost
-  if (tier.pricePerExtraM2 && area > tier.minArea) {
-    const extraArea = area - tier.minArea;
+  // Calculate the additional cost for areas beyond the base tier
+  if (area > tier.min) {
+    const extraArea = area - tier.min;
     return tier.basePrice + (extraArea * tier.pricePerExtraM2);
   }
   

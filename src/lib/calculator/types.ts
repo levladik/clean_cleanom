@@ -14,10 +14,11 @@ export enum ServiceType {
 
 // Pricing tier for area-based pricing
 export interface PricingTier {
-  minArea: number
-  maxArea: number
+  min: number
+  max: number
   basePrice: number
-  pricePerExtraM2?: number
+  pricePerExtraM2: number
+  label: string
 }
 
 // Service pricing structure
