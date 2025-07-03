@@ -5,36 +5,49 @@
  * The hero section with calculator for the cleaning service landing page
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 type Post = {
-  id: number;
+  id: number
   title: {
-    rendered: string;
-  };
-};
+    rendered: string
+  }
+}
 
 export default function Hero() {
-  const [posts, setPosts] = useState<Post[]>([]);
-
+  const [posts, setPosts] = useState<Post[]>([])
+  const [error, setError] = useState<string | null>(null)
+  
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_WP_API}/wp/v2/posts`)
-      .then(res => res.json())
-      .then(data => setPosts(data));
-  }, []);
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/wp/v2/posts`)
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`)
+        }
+        const data = await res.json()
+        setPosts(data)
+      } catch (err) {
+        console.error('Error fetching posts:', err)
+        if (err instanceof Error) {
+          setError(err.message)
+        } else {
+          setError('An unexpected error occurred')
+        }
+      }
+    }
+
+     fetchPosts()
+  }, [])
 
   return (
     <section id="hero">
-      <h1>Посты из WordPress</h1>
-      {posts.length === 0 ? (
-        <p>Постов пока нет</p>
-      ) : (
-        <ul>
-          {posts.map(post => (
-            <li key={post.id}>{post.title.rendered}</li>
-          ))}
-        </ul>
-      )}
+      <div>
+      {error && <p>Error: {error}</p>}
+      {posts.map(post => (
+        <div key={post.id}>{post.title.rendered}</div>
+      ))}
+    </div>
     </section>
-  );
+  )
 }
