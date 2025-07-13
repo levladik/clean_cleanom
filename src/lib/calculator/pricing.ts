@@ -8,7 +8,7 @@ import { ServiceType, ServicePricing, AdditionalService, PriceSummary, Calculato
 
 // Main areas
 export const AREA_TIERS = [
-  { min: 0, max: 50, label: '0-50v' },
+  { min: 0, max: 50, label: '0-50' },
   { min: 51, max: 70, label: '51-70' },
   { min: 71, max: 100, label: '71-100' },
   { min: 101, max: 200, label: '101-200' },
@@ -89,41 +89,48 @@ export const additionalServices: AdditionalService[] = [
 /**
  * Calculate base price for a service based on area
  */
-export function calculateBasePrice(serviceId: ServiceType, area: number): number {
-  const service = services.find(service => service.id === serviceId);
+export function calculateBasePrice(serviceType: ServiceType, area: string): number {
+  const service = services.find(service => service.id === serviceType)
+  const minPrice = service?.minPrice
+  const includetdServices = service?.includedServices || []
   
   if (!service) {
-    throw new Error(`Service with ID ${serviceId} not found`);
+    throw new Error(`Service with ID ${serviceType} not found`);
   }
   
   // Find the appropriate tier for the given area
-  const tier = service.tiers.find((tier) => area === tier.max);
+  const tier = service.tiers.find((tier) => area === tier.label)
   
-  if (!tier) {
-    // If area is beyond the defined tiers, use the last tier
-    if (area >= service.tiers[service.tiers.length - 1].min) {
-      const lastTier = service.tiers[service.tiers.length - 1];
+  // if (!tier) {
+  //   // If area is beyond the defined tiers, use the last tier
+  //   if (area >= service.tiers[service.tiers.length - 1].min) {
+  //     const lastTier = service.tiers[service.tiers.length - 1];
       
-      // Calculate the additional cost for areas beyond the base tier
-      if (area > lastTier.min) {
-        const extraArea = area - lastTier.min;
-        return lastTier.basePrice + (extraArea * lastTier.pricePerExtraM2);
-      }
+  //     // Calculate the additional cost for areas beyond the base tier
+  //     if (area > lastTier.min) {
+  //       const extraArea = area - lastTier.min;
+  //       return lastTier.basePrice + (extraArea * lastTier.pricePerExtraM2);
+  //     }
       
-      return lastTier.basePrice;
-    }
+  //     return lastTier.basePrice;
+  //   }
     
-    // If area is below the minimum, use the first tier
-    return service.tiers[0].basePrice;
-  }
+  //   // If area is below the minimum, use the first tier
+  //   return service.tiers[0].basePrice;
+  // }
   
   // Calculate the additional cost for areas beyond the base tier
-  if (area > tier.min) {
-    const extraArea = area - tier.min;
-    return tier.basePrice + (extraArea * tier.pricePerExtraM2);
-  }
+  // if (area > tier.min) {
+  //   const extraArea = area - tier.min;
+  //   return tier.basePrice + (extraArea * tier.pricePerExtraM2);
+  // }
   
-  return tier.basePrice;
+  if (!tier) {
+    throw new Error(`No pricing tier found for area "${area}" in service "${serviceType}"`)
+  } else if (tier.basePrice < minPrice) {
+    return tier.minPrice
+  }
+  return tier.basePrice
 }
 
 /**
@@ -217,8 +224,8 @@ export function calculateTotalPrice(state: CalculatorState): PriceSummary {
 /**
  * Get a list of included services for a given service type
  */
-export function getIncludedServices(serviceId: ServiceType): AdditionalService[] {
-  const service = services.find(s => s.id === serviceId);
+export function getIncludedServices(serviceType: ServiceType): AdditionalService[] {
+  const service = services.find(s => s.id === serviceType);
   
   if (!service) {
     return [];
@@ -230,8 +237,8 @@ export function getIncludedServices(serviceId: ServiceType): AdditionalService[]
 /**
  * Get a service by its ID
  */
-export function getServiceById(serviceId: ServiceType): ServicePricing | undefined {
-  return services.find(s => s.id === serviceId);
+export function getServiceById(serviceType: ServiceType): ServicePricing | undefined {
+  return services.find(s => s.id === serviceType);
 }
 
 /**

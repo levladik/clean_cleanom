@@ -1,5 +1,7 @@
 'use client';
 
+import { AREA_TIERS } from "@/lib/calculator/pricing";
+
 /**
  * RoomSizeSelector Component
  *
@@ -13,6 +15,9 @@ interface RoomSizeSelectorProps {
 }
 
 export const RoomSizeSelector = ({ setRoomSize, basePrice }: RoomSizeSelectorProps) => {
+
+  const areas = AREA_TIERS
+
   return (
     <div className='w-fit m-auto'>
       <div className='flex items-center justify-center gap-4 my-4'>
@@ -20,11 +25,11 @@ export const RoomSizeSelector = ({ setRoomSize, basePrice }: RoomSizeSelectorPro
           className='select select-primary select-lg w-min'
           onChange={(e) => setRoomSize?.(e.target.value)}
         >
-          <option>0-50</option>
-          <option>50-70</option>
-          <option>70-100</option>
-          <option>100-200</option>
-          <option>200+</option>
+          {areas.map((area) => (
+            <option key={area.label} value={area.label}>
+              {area.label}
+            </option>
+          ))}
         </select>
         <p className='text-2xl'>m<sup>2</sup></p>
 

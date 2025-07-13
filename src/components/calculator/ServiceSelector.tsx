@@ -26,7 +26,7 @@ export default function ServiceSelector({ setSelectedService }: ServiceSelectorP
               role='tab'
               className='tab'
               key={service.id}
-              onClick={() => {setSelectedService?.(service.id)}}
+              onClick={() => setSelectedService?.(service.id)}
             >
               {service.name}
             </a>
