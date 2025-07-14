@@ -102,11 +102,9 @@ export function calculateBasePrice(serviceType: ServiceType, area: string): numb
   // Find the appropriate tier for the given area
   const tier = service.tiers.find((tier) => area === tier.label)
 
-  if(tier?.basePrice < minPrice) {
-    return minPrice 
-  } else {
-    return tier.basePrice
-  }
+  const basePrice = tier?.basePrice || 0
+  return Math.max(basePrice, minPrice)
+
   
 }
 

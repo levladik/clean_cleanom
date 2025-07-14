@@ -8,7 +8,7 @@
 import { useState } from 'react'
 import { RoomSizeSelector } from './RoomSizeSelector'
 import ServiceSelector from './ServiceSelector'
-import { calculateBasePrice } from '@/lib/calculator/pricing'
+import { calculateBasePrice, getServiceInfo } from '@/lib/calculator/pricing'
 import { ServiceType } from '@/lib/calculator/types'
 import AddonsSelector from './AddonsSelector'
 
@@ -17,12 +17,13 @@ export default function Calculator() {
   const [roomSize, setRoomSize] = useState('0-50')
 
   const basePrice = calculateBasePrice(selectedService, roomSize) 
+  const service = getServiceInfo(selectedService)
 
   return (
     <div className='calculator m-auto max-w-4xl'>
       <ServiceSelector setSelectedService={setSelectedService} />
       <RoomSizeSelector setRoomSize={setRoomSize} basePrice={basePrice}/>
-      <AddonsSelector selectedService={selectedService}/>
+      <AddonsSelector service={service}/>
     </div>
   );
 }

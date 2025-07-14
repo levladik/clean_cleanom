@@ -4,24 +4,23 @@
  * Component for selecting service add-ons in the calculator
  */
 
-import { additionalServices, getServiceInfo } from '@/lib/calculator/pricing';
-import { ServiceType } from '@/lib/calculator/types';
-import React from 'react';
+import { additionalServices } from '@/lib/calculator/pricing';
+import { ServicePricing } from '@/lib/calculator/types';
 
 interface AddonsSelectorProps {
-  selectedService: ServiceType
+  service: ServicePricing
 }
 
-export default function AddonsSelector({ selectedService }: AddonsSelectorProps) {
+export default function AddonsSelector({ service }: AddonsSelectorProps) {
 
-  const service = getServiceInfo(selectedService)
-  const includedServices = service?.includedServices
+  const includedServices = service.includedServices
+
 
   return (
     <div className="addons-selector">
       <ul>
         {additionalServices.map((addon) => {
-          const isAddonIncluded = includedServices?.includes(addon.id);
+          const isAddonIncluded = includedServices?.includes(addon.id)
 
           return (
             <li key={addon.id} className="addon-item">
