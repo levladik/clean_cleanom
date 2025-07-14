@@ -15,13 +15,12 @@ interface AddonsSelectorProps {
 export default function AddonsSelector({ selectedService }: AddonsSelectorProps) {
 
   const service = getServiceInfo(selectedService)
-  const addonsList = additionalServices
   const includedServices = service?.includedServices
 
   return (
     <div className="addons-selector">
       <ul>
-        {addonsList.map((addon) => {
+        {additionalServices.map((addon) => {
           const isAddonIncluded = includedServices?.includes(addon.id);
 
           return (

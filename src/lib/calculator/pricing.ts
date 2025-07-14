@@ -99,43 +99,15 @@ export function calculateBasePrice(serviceType: ServiceType, area: string): numb
   const service = getServiceInfo(serviceType)
   const minPrice = service?.minPrice
   
-  if (!service) {
-    throw new Error(`Service with ID ${serviceType} not found`);
-  }
-  
   // Find the appropriate tier for the given area
   const tier = service.tiers.find((tier) => area === tier.label)
-  
-  // if (!tier) {
-  //   // If area is beyond the defined tiers, use the last tier
-  //   if (area >= service.tiers[service.tiers.length - 1].min) {
-  //     const lastTier = service.tiers[service.tiers.length - 1];
-      
-  //     // Calculate the additional cost for areas beyond the base tier
-  //     if (area > lastTier.min) {
-  //       const extraArea = area - lastTier.min;
-  //       return lastTier.basePrice + (extraArea * lastTier.pricePerExtraM2);
-  //     }
-      
-  //     return lastTier.basePrice;
-  //   }
-    
-  //   // If area is below the minimum, use the first tier
-  //   return service.tiers[0].basePrice;
-  // }
-  
-  // Calculate the additional cost for areas beyond the base tier
-  // if (area > tier.min) {
-  //   const extraArea = area - tier.min;
-  //   return tier.basePrice + (extraArea * tier.pricePerExtraM2);
-  // }
-  
-  if (!tier) {
-    throw new Error(`No pricing tier found for area "${area}" in service "${serviceType}"`)
-  } else if (tier.basePrice < minPrice) {
-    return tier.minPrice
+
+  if(tier?.basePrice < minPrice) {
+    return minPrice 
+  } else {
+    return tier.basePrice
   }
-  return tier.basePrice
+  
 }
 
 /**
