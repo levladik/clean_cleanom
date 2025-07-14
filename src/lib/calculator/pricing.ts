@@ -39,8 +39,8 @@ function createServicePricing(
 
 export const services: ServicePricing[] = [
   createServicePricing(ServiceType.BASIC, 'Базовая уборка', [5000, 6000, 7000, 7000, 7000], 5000, [0, 0, 0, 0, 500]),
-  createServicePricing(ServiceType.GENERAL, 'Генеральная уборка', [11000, 13000, 15000, 7000, 7000], 11000, [0, 0, 0, 0, 1000], ['window_cleaning', 'mold']),
-  createServicePricing(ServiceType.POST_REPAIR, 'Уборка после ремонта', [15000, 18000, 20000, 7000, 7000], 15000, [0, 0, 0, 0, 1000], ['window_cleaning', 'mold']),
+  createServicePricing(ServiceType.GENERAL, 'Генеральная уборка', [11000, 13000, 15000, 7000, 7000], 11000, [0, 0, 0, 0, 1000], ['balcony', 'mold']),
+  createServicePricing(ServiceType.POST_REPAIR, 'Уборка после ремонта', [15000, 18000, 20000, 7000, 7000], 15000, [0, 0, 0, 0, 1000], ['balcony', 'mold']),
   createServicePricing(ServiceType.WINDOW_CLEANING, 'Мытье окон', [2000, 3000, 4000, 6000, 0], 4000, [0, 0, 0, 0, 0])
 ]
 
@@ -86,13 +86,18 @@ export const additionalServices: AdditionalService[] = [
   }
 ];
 
+export function getServiceInfo(serviceType: ServiceType) {
+  const serviceInfo = services.find(service => service.id === serviceType)
+  return serviceInfo
+}
+
+
 /**
  * Calculate base price for a service based on area
  */
 export function calculateBasePrice(serviceType: ServiceType, area: string): number {
-  const service = services.find(service => service.id === serviceType)
+  const service = getServiceInfo(serviceType)
   const minPrice = service?.minPrice
-  const includetdServices = service?.includedServices || []
   
   if (!service) {
     throw new Error(`Service with ID ${serviceType} not found`);
@@ -136,59 +141,9 @@ export function calculateBasePrice(serviceType: ServiceType, area: string): numb
 /**
  * Calculate the price for additional services
  */
-export function calculateAddonsPrice(
-  selectedAddons: Record<string, number>,
-  includedServices: string[]
-): { total: number; breakdown: Record<string, number> } {
-  let total = 0;
-  const breakdown: Record<string, number> = {};
-  
-  Object.entries(selectedAddons).forEach(([addonId, quantity]) => {
-    // Skip if the addon is included in the service
-    if (includedServices.includes(addonId)) {
-      breakdown[addonId] = 0;
-      return;
-    }
-    
-    const addon = additionalServices.find(a => a.id === addonId);
-    if (!addon || quantity <= 0) {
-      breakdown[addonId] = 0;
-      return;
-    }
-    
-    let addonPrice = 0;
-    
-    switch (addon.unit) {
-      case 'm2':
-        // Price per square meter
-        addonPrice = addon.price * quantity;
-        break;
-        
-      case 'item':
-        // Price per item
-        addonPrice = addon.price * quantity;
-        break;
-        
-      case 'base':
-        // Base price with potential extra charges
-        if (addon.minQuantity && addon.pricePerExtra) {
-          if (quantity <= addon.minQuantity) {
-            addonPrice = addon.price;
-          } else {
-            const extraItems = quantity - addon.minQuantity;
-            addonPrice = addon.price + (extraItems * addon.pricePerExtra);
-          }
-        } else {
-          addonPrice = addon.price;
-        }
-        break;
-    }
-    
-    breakdown[addonId] = addonPrice;
-    total += addonPrice;
-  });
-  
-  return { total, breakdown };
+export function calculateAddonsPrice(serviceType: ServiceType) {
+  const service = services.find(service => service.id === serviceType)
+  const includedServices = service?.includedServices
 }
 
 /**
