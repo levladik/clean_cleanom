@@ -4,7 +4,7 @@
  * This file provides functions for calculating cleaning service prices
  */
 
-import { ServiceType, ServicePricing, AdditionalService, PriceSummary, CalculatorState } from './types';
+import { ServiceType, ServicePricing, AdditionalService } from './types';
 
 // Main areas
 export const AREA_TIERS = [
@@ -97,12 +97,12 @@ export function getServiceInfo(serviceType: ServiceType) {
  */
 export function calculateBasePrice(serviceType: ServiceType, area: string): number {
   const service = getServiceInfo(serviceType)
-  const minPrice = service?.minPrice
+  const minPrice = service?.minPrice ?? 0
   
   // Find the appropriate tier for the given area
-  const tier = service.tiers.find((tier) => area === tier.label)
+  const tier = service?.tiers.find((tier) => area === tier.label)
 
-  const basePrice = tier?.basePrice || 0
+  const basePrice = tier?.basePrice ?? 0
   return Math.max(basePrice, minPrice)
 
   
@@ -111,40 +111,41 @@ export function calculateBasePrice(serviceType: ServiceType, area: string): numb
 /**
  * Calculate the price for additional services
  */
-export function calculateAddonsPrice(serviceType: ServiceType) {
-  const service = services.find(service => service.id === serviceType)
-  const includedServices = service?.includedServices
-}
+
+// export function calculateAddonsPrice(serviceType: ServiceType) {
+//   const service = services.find(service => service.id === serviceType)
+//   const includedServices = service?.includedServices
+// }
 
 /**
  * Calculate the total price for a cleaning service
  */
-export function calculateTotalPrice(state: CalculatorState): PriceSummary {
-  const service = services.find(s => s.id === state.selectedService);
+// export function calculateTotalPrice(state: CalculatorState): PriceSummary {
+//   const service = services.find(s => s.id === state.selectedService);
   
-  if (!service) {
-    throw new Error(`Service with ID ${state.selectedService} not found`);
-  }
+//   if (!service) {
+//     throw new Error(`Service with ID ${state.selectedService} not found`);
+//   }
   
-  // Calculate base price
-  let basePrice = calculateBasePrice(state.selectedService, state.area);
+//   // Calculate base price
+//   let basePrice = calculateBasePrice(state.selectedService, state.area);
   
-  // Ensure minimum price is met
-  basePrice = Math.max(basePrice, service.minPrice);
+//   // Ensure minimum price is met
+//   basePrice = Math.max(basePrice, service.minPrice);
   
-  // Calculate addons price
-  const { total: addonsPrice } = calculateAddonsPrice(state.selectedAddons, service.includedServices);
+//   // Calculate addons price
+//   const { total: addonsPrice } = calculateAddonsPrice(state.selectedAddons, service.includedServices);
   
-  // Calculate total price
-  const totalPrice = basePrice + addonsPrice;
+//   // Calculate total price
+//   const totalPrice = basePrice + addonsPrice;
   
-  return {
-    basePrice,
-    addonsPrice,
-    totalPrice,
-    includedServices: service.includedServices
-  };
-}
+//   return {
+//     basePrice,
+//     addonsPrice,
+//     totalPrice,
+//     includedServices: service.includedServices
+//   };
+// }
 
 /**
  * Get a list of included services for a given service type
