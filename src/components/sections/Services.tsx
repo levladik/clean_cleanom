@@ -8,8 +8,12 @@ import React from 'react';
 
 export default function Services() {
   return (
-    <section id="services">
-      {/* Services content will be added by the user */}
+    <section id="services m-auto max-w-4xl">
+      <div className="service_wrapper">
+        <div className="service_card">
+          <h2>Базовая</h2>
+        </div>
+      </div>
     </section>
   );
 }
