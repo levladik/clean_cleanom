@@ -15,20 +15,23 @@ import Testimonials from '@/components/sections/Testimonials';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 import Calculator from '@/components/calculator/Calculator';
+import Wrapper from '@/components/layout/Wrapper';
 
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        <Calculator />
-        <Hero />
-        <Services />
-        <About />
-        <Gallery />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+        <Wrapper>
+          <Calculator />
+          <Hero />
+          <Services />
+          <About />
+          <Gallery />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+        </Wrapper>
       </main>
       <Footer />
     </>
