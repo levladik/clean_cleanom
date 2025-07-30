@@ -19,21 +19,15 @@ import Wrapper from '@/components/layout/Wrapper';
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <Wrapper>
-          <Calculator />
-          <Hero />
-          <Services />
-          <About />
-          <Gallery />
-          <Testimonials />
-          <FAQ />
-          <Contact />
-        </Wrapper>
-      </main>
-      <Footer />
-    </>
+    <Wrapper>
+      <Calculator />
+      <Hero />
+      <Services />
+      <About />
+      <Gallery />
+      <Testimonials />
+      <FAQ />
+      <Contact />
+    </Wrapper>
   );
 }
