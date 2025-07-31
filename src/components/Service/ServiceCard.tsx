@@ -29,18 +29,18 @@ export default function ServiceCard({
   return (
     <div className='service_card bg-base-100 p-4 rounded-lg flex flex-col gap-2 justify-start items-start'>
 
-      <div className='flex flex-col'>
-        <h4 className='font-bold tracking-wide opacity-50 mb-2'>{title}</h4>
-        <div className='flex gap-2 mb-5'>
-          <span className='badge badge-md bg-base-300'>{cleaners}</span>
-          <span className='badge badge-md bg-base-300'>{duration}</span>
+      <div className='flex flex-col mb-5'>
+        <h4 className='text-2xl font-bold tracking-wide opacity-50 mb-2'>{title}</h4>
+        <div className='flex flex-col gap-2 mb-2'>
+          <span className='badge badge-soft badge-sm'>{cleaners}</span>
+          <span className='badge badge-soft badge-sm'>{duration}</span>
         </div>
         <div>
-          <span className='text-4xl font-black'>{price}</span>
+          <span className='text-2xl font-black'>{price}</span>
         </div>
       </div>
 
-      <button className='btn btn-accent mb-5'>Заказать</button>
+      <button className='btn btn-accent text-base-100 text-lg text-bold uppercase mb-5 w-full'>Заказать</button>
 
       <div>
         <ul className='space-y-2 text-sm'>
