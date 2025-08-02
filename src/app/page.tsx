@@ -14,11 +14,13 @@ import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
 import Calculator from '@/components/calculator/Calculator';
 import Wrapper from '@/components/layout/Wrapper';
+import HowItWorks from '@/components/HowItWorks';
 
 export default function Home() {
   return (
     <Wrapper>
       <Calculator />
+      <HowItWorks />
       <Hero />
       <Services />
       <About />
