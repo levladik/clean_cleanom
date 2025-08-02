@@ -72,7 +72,7 @@ export default function HowItWorks() {
 
       {/* Timeline View */}
       <div className="mb-12">
-        <ul className="steps steps-vertical lg:steps-horizontal w-full">
+        <ul className="steps steps-vertical sm:steps-horizontal w-full">
           {steps.map((step) => (
             <li key={step.number} className="step step-primary">
               <span className="step-icon d-flex items-center justify-center">
@@ -81,72 +81,6 @@ export default function HowItWorks() {
             </li>
           ))}
         </ul>
-      </div>
-
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {steps.map((step) => (
-          <div 
-            key={step.number}
-            className="card bg-base-100 shadow-lg border border-base-300 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div className="card-body p-6 text-center">
-              {/* Step Number Badge */}
-              <div className="badge badge-primary badge-lg mb-4 mx-auto">
-                {step.number}
-              </div>
-
-              {/* Icon */}
-              <div className="flex justify-center mb-4">
-                {step.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="card-title text-lg font-semibold text-base-content justify-center mb-2">
-                {step.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-base-content opacity-70 mb-4">
-                {step.description}
-              </p>
-
-              {/* Actions */}
-              <div className="card-actions justify-center flex-col gap-2">
-                {step.hasLink && (
-                  <>
-                    <a 
-                      href={step.linkHref}
-                      className="btn btn-primary btn-sm"
-                      aria-label={`${step.linkText} - переход к разделу калькулятора`}
-                    >
-                      {step.linkText}
-                    </a>
-                    {step.secondaryAction && (
-                      <a 
-                        href={step.secondaryAction.href}
-                        className="link link-secondary text-sm"
-                        aria-label="Позвонить менеджеру для консультации"
-                      >
-                        {step.secondaryAction.text}
-                      </a>
-                    )}
-                  </>
-                )}
-
-                {step.badges && (
-                  <div className="flex gap-2 justify-center flex-wrap">
-                    {step.badges.map((badge, index) => (
-                      <div key={index} className="badge badge-outline badge-sm">
-                        {badge}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );
