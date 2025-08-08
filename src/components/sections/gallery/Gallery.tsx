@@ -5,11 +5,12 @@
  */
 
 import React from 'react';
+import GalleryDiff from './GalleryDiff';
 
 export default function Gallery() {
   return (
-    <section id="gallery">
-      {/* Gallery content will be added by the user */}
+    <section id="gallery m-auto py-16 px-4">
+      <GalleryDiff />
     </section>
   );
 }
