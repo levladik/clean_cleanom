@@ -1,33 +1,22 @@
 /**
  * Home Page
- * 
- * The main landing page for the cleaning service website
+ *
+ * The main landing page
  */
 
-import React from 'react';
-import Hero from '@/components/sections/Hero';
-import Services from '@/components/Service/Services';
-import About from '@/components/sections/About';
-import Gallery from '@/components/sections/gallery/Gallery';
-import Testimonials from '@/components/sections/Testimonials';
-import FAQ from '@/components/sections/FAQ';
-import Contact from '@/components/sections/Contact';
-import Calculator from '@/components/calculator/Calculator';
-import Wrapper from '@/components/layout/Wrapper';
-import HowItWorks from '@/components/HowItWorks';
+import Wrapper from './components/layout/Wrapper'
 
 export default function Home() {
   return (
-    <Wrapper>
-      <Calculator />
-      <Gallery />
-      <HowItWorks />
-      <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+    <Wrapper className="flex justify-center">
+      <div className="mockup-code w-90 mt-5">
+        <div className="flex flex-col p-5 pt-0 text-2xl">
+          <code>NextJS</code>
+          <code>TS</code>
+          <code>Tailwind</code>
+          <code>DaisyUI</code>
+        </div>
+      </div>
     </Wrapper>
-  );
+  )
 }

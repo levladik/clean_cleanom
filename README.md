@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Next.js + Tailwind CSS template
 
-## Getting Started
+A minimal, batteries-included starter built with Next.js App Router, Tailwind CSS v4, DaisyUI, and TypeScript. Comes preconfigured with ESLint and Prettier.
 
-First, run the development server:
+- **Framework**: Next.js 15 (App Router, `src/app`)
+- **UI**: Tailwind CSS 4 + DaisyUI (themes off by default)
+- **Language**: TypeScript
+- **Tooling**: Turbopack dev server, ESLint, Prettier
+
+### Requirements
+
+- Node.js 18.18+ (or 20+ recommended)
+- npm, pnpm, yarn, or bun
+
+### Quick start
 
 ```bash
+# install dependencies
+npm i
+
+# start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# build for production
+npm run build
+
+# start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` and edit `src/app/page.tsx`. Hot reload is enabled.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `dev`: Start Next.js in development (Turbopack)
+- `build`: Build the production bundle
+- `start`: Start the production server
+- `lint`: Run ESLint
 
-## Learn More
+### Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+projectn-name/
+  src/
+    app/
+      components/
+        layout/
+          Wrapper.tsx
+      globals.css
+      layout.tsx
+      page.tsx
+  tailwind.config.js
+  next.config.ts
+  eslint.config.mjs
+  postcss.config.mjs
+  tsconfig.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Styling and DaisyUI
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Tailwind is configured for `./src/**/*.{js,ts,jsx,tsx}`. DaisyUI is installed and loaded with themes disabled. To enable built-in themes or define your own, edit `tailwind.config.js`:
 
-## Deploy on Vercel
+```js
+// tailwind.config.js
+import daisyui from 'daisyui'
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+const config = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  theme: {},
+  plugins: [daisyui],
+  daisyui: {
+    // enable built-ins: true, or specify a list: ['light', 'dark']
+    themes: ['light'],
+  },
+}
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+export default config
+```
+
+To use a custom theme and match the `data-theme="customTheme"` attribute set in `src/app/layout.tsx`, define it like this:
+
+```js
+// tailwind.config.js (excerpt)
+daisyui: {
+  themes: [
+    {
+      customTheme: {
+        primary: '#570DF8',
+        secondary: '#F000B8',
+        accent: '#37CDBE',
+        neutral: '#3D4451',
+        'base-100': '#FFFFFF',
+      },
+    },
+  ],
+}
+```
+
+### Deploy
+
+- Recommended: Vercel. Build with `npm run build` and deploy the output.
+- See Next.js docs for configuration notes.
+
+### Useful links
+
+- Next.js docs: `https://nextjs.org/docs`
+- Tailwind CSS: `https://tailwindcss.com/docs`
+- DaisyUI: `https://daisyui.com/`
