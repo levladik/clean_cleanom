@@ -21,7 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       data-theme="mytheme"
       lang="en"
     >
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-base-200">
         <main className="flex-1">{children}</main>
       </body>
     </html>
