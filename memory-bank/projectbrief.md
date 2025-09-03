@@ -41,7 +41,7 @@ Presentation of services.
 *   English
 *   Serbian
 
-# Sitemap
+## Sitemap
 
 ### **Hero Block**
 
@@ -148,3 +148,53 @@ Presentation of services.
 - Personal data processing rules.
 - Booking and cancellation rules.
 - Language switch button.
+
+## General Style
+* **Minimalist & Modern** — The design relies on clean layouts, plenty of white space, and light pastel colors, which creates a sense of freshness and trustworthiness.  
+* **Cleanliness & Wellness Theme** — Green, turquoise, and mint green shades are dominant, evoking cleanliness, safety, and health.  
+* **Soft and Friendly Look** — Rounded corners, smooth gradients, and soft shadows make the design approachable and patient-friendly.  
+
+## Color Palette
+* **Background:** White with light pastel gradients (sky blue, mint, soft aqua).  
+* **Primary Colors:** Shades of turquoise, mint green, light blue.  
+* **Accent Color:** Fresh green (used for CTA buttons like "Записаться на прием").  
+* **Typography Color:** Mostly dark gray or black for readability, with highlighted words in accent blue.  
+
+## Typography
+* **Fonts:** Clean, sans-serif (Inter, Helvetica, or similar).  
+* **Hierarchy:**  
+  - Large bold headlines for trust and emphasis.  
+  - Medium-weight subheadings.  
+  - Light body text with good spacing for readability.  
+* **Highlighting:** Key words are colored differently (blue) to draw attention.  
+
+## Layout
+* **Grid-Based** — Content is structured in a clear multi-column grid.  
+* **Hero Section:**  
+  - Left: Title, subtitle, CTA button, rating.  
+  - Right: Large smiling photo (positive emotion anchor).  
+* **Sections:**  
+  - About & Services: Card-style blocks with icons, images, and text.  
+  - Benefits: Circular composition around a central smile photo.  
+* **Consistent Spacing** — Generous padding/margin creates breathing space.  
+
+## UI Elements
+* **Buttons:** Rounded, solid-fill with accent colors, subtle shadows for depth.  
+* **Cards:** Soft gradient backgrounds, rounded edges, clean icons.  
+* **Icons:** Line-style, minimalist, medical-themed.  
+* **Navigation:** Top bar, simple text links with a small login button.  
+
+## Imagery
+* **Hero Image:** Professional, high-quality smiling face to build trust.  
+* **Supporting Photos:** Clean, sterile dental clinic images.  
+* **Illustrations & Icons:** Used for a friendly and simplified explanation of services.  
+
+## UX & Interaction Style
+* **Trust-Oriented:** Testimonials, client count (+1000 satisfied clients).  
+* **Emphasis on Offers:** Clear promotions (20% discount banners).  
+* **Smooth Flow:** From hero → clinic intro → services → importance of dental health.  
+* **Accessibility:** High-contrast CTAs, clear fonts, large images.  
+
+## Overall Vibe
+This design combines **professionalism** (clean medical feel) with **approachability** (soft, friendly visuals).  
+It instills **trust, care, and modernity**, which are crucial for a dental clinic.  
