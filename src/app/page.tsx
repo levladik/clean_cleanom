@@ -5,12 +5,14 @@
  */
 
 import Wrapper from './components/layout/Wrapper'
-import HeroSection from './components/ui/HeroSection'
+import HeroSection from './components/sections/HeroSection'
+import Services from './components/sections/services/Services'
 
 export default function Home() {
   return (
-    <Wrapper className="flex justify-center">
+    <Wrapper className="flex justify-center flex-col">
       <HeroSection />
+      <Services />
     </Wrapper>
   )
 }
