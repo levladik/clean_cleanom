@@ -6,14 +6,12 @@ const HeroSection = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between">
         {/* Left Content */}
         <div className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 text-primary">Cleaning Service in Belgrade</h1>
-          <p className="text-lg sm:text-xl lg:text-2xl mb-8">Your trusted partner for a spotless home and office.</p>
-          <p className="text-base sm:text-lg mb-8 text-gray-600 ">
-            Get an instant estimate with our easy-to-use cleaning calculator:
-            <br />
-            Basic / General / Post-Renovation Cleaning / Dry Cleaning
-            <br />
-            Area and type of premises / type of furniture
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            Professional <span className="text-primary">Cleaning Service</span> in Belgrade
+          </h1>
+          <p className="text-base text-lg sm:text-xl lg:text-2xl mb-8 text-gray-800">
+            Quality guaranteed cleaning for homes and offices. Experienced team, professional equipment, and flexible scheduling for your
+            convenience.
           </p>
           <div className="flex justify-center lg:justify-start space-x-4">
             <button className="btn btn-primary btn-lg rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
