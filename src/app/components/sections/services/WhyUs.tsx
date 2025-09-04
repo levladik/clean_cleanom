@@ -99,17 +99,17 @@ const WhyUs = () => {
             </div>
           ))}
           <div className="stats stats-vertical border-2 border-base-300">
-            <div className="stat flex items-center justify-center p-3">
+            <div className="stat flex items-center justify-center py-0 px-2">
               <div className="stat-value text-xl text-primary">1 000+</div>
               <div className="stat-title">Satisfied Customers</div>
             </div>
 
-            <div className="stat flex items-center justify-center p-3">
+            <div className="stat flex items-center justify-center  py-0 px-2">
               <div className="stat-value text-xl text-primary">3+</div>
               <div className="stat-title">Years Experience</div>
             </div>
 
-            <div className="stat flex items-center justify-center p-3">
+            <div className="stat flex items-center justify-center p py-0 px-2">
               <div className="stat-value text-xl text-primary">99%</div>
               <div className="stat-title">Satisfaction Rate</div>
             </div>
