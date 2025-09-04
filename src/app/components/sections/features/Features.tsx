@@ -1,3 +1,9 @@
+/**
+ * @component Features
+ * @purpose To promote a cleaning service.
+ * @description Displays the advantages of the cleaning service.
+ * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
+ */
 import { DollarSign, Clock, Shield, Users, Calendar, Repeat, Building2, Leaf } from 'lucide-react'
 
 const advantages = [
@@ -65,7 +71,7 @@ const advantages = [
     description: 'Working with legal entities, invoice payments',
   },
 ]
-const WhyUs = () => {
+const Features = () => {
   return (
     <section className="pb-16 md:pb-24 lg:pb-32 w-full">
       <div className="container mx-auto px-4">
@@ -120,4 +126,4 @@ const WhyUs = () => {
   )
 }
 
-export default WhyUs
+export default Features

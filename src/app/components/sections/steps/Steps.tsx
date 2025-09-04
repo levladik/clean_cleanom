@@ -1,3 +1,9 @@
+/**
+ * @component Steps
+ * @purpose To promote a cleaning service.
+ * @description Illustrates the step-by-step process of booking a cleaning service.
+ * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
+ */
 import { BrushCleaning, ChevronRight, CircleCheck, Clock, DollarSign } from 'lucide-react'
 
 const steps = [
@@ -7,7 +13,7 @@ const steps = [
   { title: 'Результат', icon: CircleCheck, desc: 'Приемка и оплата' },
 ]
 
-export const HowItWorks = () => {
+const Steps = () => {
   return (
     <section className="pb-16 md:pb-24 lg:pb-32 w-full">
       <div className="">
@@ -30,3 +36,4 @@ export const HowItWorks = () => {
     </section>
   )
 }
+export default Steps

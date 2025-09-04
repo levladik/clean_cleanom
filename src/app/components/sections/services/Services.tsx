@@ -1,7 +1,8 @@
 /**
- * Services Section
- *
- * The services section for the cleaning service landing page
+ * @component Services
+ * @purpose To promote a cleaning service.
+ * @description Displays a list of cleaning services with details and an option to view additional services.
+ * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS. Uses React state for toggling additional services.
  */
 'use client'
 import React, { useState } from 'react'

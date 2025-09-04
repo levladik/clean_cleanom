@@ -1,9 +1,9 @@
 /**
- * ServiceCard Component
- *
- * Reusable service card component for displaying cleaning service information
+ * @component ServiceCard
+ * @purpose To promote a cleaning service.
+ * @description Displays individual cleaning service details including title, cleaners, duration, price, features, and a popular tag.
+ * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
  */
-
 import clsx from 'clsx'
 import { Circle, CircleCheck, Clock, Users } from 'lucide-react'
 

@@ -5,18 +5,18 @@
  */
 
 import Wrapper from './components/layout/Wrapper'
-import HeroSection from './components/sections/HeroSection'
-import { HowItWorks } from './components/sections/services/HowItWorks'
+import Features from './components/sections/features/Features'
+import Hero from './components/sections/hero/Hero'
 import Services from './components/sections/services/Services'
-import WhyUs from './components/sections/services/WhyUs'
+import Steps from './components/sections/steps/Steps'
 
 export default function Home() {
   return (
     <Wrapper className="flex justify-center flex-col">
-      <HeroSection />
+      <Hero />
       <Services />
-      <WhyUs />
-      <HowItWorks />
+      <Features />
+      <Steps />
     </Wrapper>
   )
 }

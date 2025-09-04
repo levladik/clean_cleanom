@@ -1,6 +1,12 @@
+/**
+ * @component Hero
+ * @purpose To promote a cleaning service.
+ * @description Displays the main headline, service description, call to action buttons, and a placeholder for a rating and image.
+ * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
+ */
 import React from 'react'
 
-const HeroSection = () => {
+const Hero = () => {
   return (
     <section className="relative py-16 md:py-24 lg:py-32 w-full">
       <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -49,4 +55,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection
+export default Hero
