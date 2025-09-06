@@ -4,7 +4,7 @@
  * @description Illustrates the step-by-step process of booking a cleaning service.
  * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
  */
-import { BrushCleaning, ChevronRight, CircleCheck, Clock, DollarSign } from 'lucide-react'
+import { BrushCleaning, ChevronDown, ChevronRight, CircleCheck, Clock, DollarSign } from 'lucide-react'
 
 const steps = [
   { title: 'Расчет', icon: DollarSign, desc: 'Калькулятор или звонок менеджера' },
@@ -17,18 +17,19 @@ const Steps = () => {
   return (
     <section className="pb-16 md:pb-24 lg:pb-32 w-full">
       <div className="">
-        <ul className="flex w-full flex-col justify-center gap-4 sm:flex-row sm:items-center">
+        <ul className="grid grid-cols-1 sm:grid-cols-4 gap-y-8 max-w-xl m-auto">
           {steps.map((step, index) => (
             <li
               key={index}
-              className="flex items-center justify-start text-left sm:space-x-4"
+              className="flex flex-col sm:flex-row items-center justify-center"
             >
-              <div className="flex items-center justify-center rounded-full text-xs tooltip tooltip-primary cursor-pointer">
+              <div className="flex items-center rounded-full text-xs tooltip tooltip-primary cursor-pointer">
                 <div className="tooltip-content p-3">{step.desc}</div>
                 <step.icon className="text-primary w-10 h-10" />
-                <span className="ms-2 text-xl font-semibold">{step.title}</span>
+                <span className="ms-2 text-lg font-semibold">{step.title}</span>
+                {index < steps.length - 1 && <ChevronRight className="hidden sm:block mt-1" />}
               </div>
-              {index < steps.length - 1 && <ChevronRight className="mx-5" />}
+              {index < steps.length - 1 && <ChevronDown className="block sm:hidden mt-5" />}
             </li>
           ))}
         </ul>
