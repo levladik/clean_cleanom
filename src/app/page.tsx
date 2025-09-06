@@ -6,6 +6,7 @@
 
 import Wrapper from './components/layout/Wrapper'
 import Features from './components/sections/features/Features'
+import Gallery from './components/sections/gallery/Gallery'
 import Hero from './components/sections/hero/Hero'
 import Services from './components/sections/services/Services'
 import Steps from './components/sections/steps/Steps'
@@ -17,6 +18,7 @@ export default function Home() {
       <Services />
       <Features />
       <Steps />
+      <Gallery />
     </Wrapper>
   )
 }
