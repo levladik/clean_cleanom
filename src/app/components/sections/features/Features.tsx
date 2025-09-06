@@ -71,6 +71,7 @@ const advantages = [
     description: 'Working with legal entities, invoice payments',
   },
 ]
+
 const Features = () => {
   return (
     <section className="pb-16 md:pb-24 lg:pb-32 w-full">
@@ -91,7 +92,15 @@ const Features = () => {
         </div>
 
         {/* Advantages Grid */}
-        <div className="mb-12 grid grid-cols-4 gap-x-4 gap-y-10 text-center">
+        <div
+          className="
+            mb-12 grid gap-x-4 gap-y-10 text-center
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
+            lg:grid-cols-4
+          "
+        >
           {advantages.map((advantage, index) => (
             <div
               key={index}
@@ -104,20 +113,22 @@ const Features = () => {
               <p className="text-md">{advantage.description}</p>
             </div>
           ))}
+
+          {/* Stats block */}
           <div className="stats stats-vertical border-2 border-base-300">
-            <div className="stat flex items-center justify-center py-0 px-2">
+            <div className="stat flex items-center justify-center py-1 px-2">
               <div className="stat-value text-xl text-primary">1 000+</div>
-              <div className="stat-title">Satisfied Customers</div>
+              <div className="stat-title text-sm">Satisfied Customers</div>
             </div>
 
-            <div className="stat flex items-center justify-center  py-0 px-2">
+            <div className="stat flex items-center justify-center py-1 px-2">
               <div className="stat-value text-xl text-primary">3+</div>
-              <div className="stat-title">Years Experience</div>
+              <div className="stat-title text-sm">Years Experience</div>
             </div>
 
-            <div className="stat flex items-center justify-center p py-0 px-2">
+            <div className="stat flex items-center justify-center py-1 px-2">
               <div className="stat-value text-xl text-primary">99%</div>
-              <div className="stat-title">Satisfaction Rate</div>
+              <div className="stat-title text-sm">Satisfaction Rate</div>
             </div>
           </div>
         </div>
