@@ -5,6 +5,7 @@
  */
 
 import Wrapper from './components/layout/Wrapper'
+import FAQ from './components/sections/FAQ'
 import Features from './components/sections/features/Features'
 import Gallery from './components/sections/gallery/Gallery'
 import Hero from './components/sections/hero/Hero'
@@ -21,6 +22,7 @@ export default function Home() {
       <Steps />
       <Gallery />
       <Testimonials />
+      <FAQ />
     </Wrapper>
   )
 }
