@@ -14,7 +14,7 @@ export const TestimonialSlider = ({ user }) => {
       <div className="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
         <blockquote className="text-white text-lg font-medium italic mb-4">“{user.quote}”</blockquote>
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white/30">
+          <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent">
             <Image
               alt={user.name}
               className="object-cover"

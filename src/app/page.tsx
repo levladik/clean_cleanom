@@ -10,6 +10,7 @@ import Gallery from './components/sections/gallery/Gallery'
 import Hero from './components/sections/hero/Hero'
 import Services from './components/sections/services/Services'
 import Steps from './components/sections/steps/Steps'
+import Testimonials from './components/sections/Testimonials'
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Features />
       <Steps />
       <Gallery />
+      <Testimonials />
     </Wrapper>
   )
 }
