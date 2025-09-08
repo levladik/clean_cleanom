@@ -23,7 +23,9 @@ const Steps = () => {
             How It <span className="text-primary">Works</span>
           </h2>
         </div>
-        <p>Simple 4-step process to get your space sparkling clean. From calculation to completion, we make it easy.</p>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          Simple 4-step process to get your space sparkling clean. From calculation to completion, we make it easy.
+        </p>
       </div>
       <div className="relative">
         {/* Connection Line */}

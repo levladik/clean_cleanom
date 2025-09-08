@@ -63,7 +63,7 @@ const Carousel = () => {
     <div className="relative w-full">
       {/* Navigation Arrows */}
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full disabled:opacity-30 cursor-pointer"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full disabled:opacity-30 cursor-pointer bg-primary"
         disabled={!canScrollPrev}
         onClick={scrollPrev}
       >
@@ -71,7 +71,7 @@ const Carousel = () => {
       </button>
 
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full disabled:opacity-30 cursor-pointer"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full disabled:opacity-30 cursor-pointer bg-primary"
         disabled={!canScrollNext}
         onClick={scrollNext}
       >
@@ -81,7 +81,7 @@ const Carousel = () => {
       {/* Carousel */}
       <div
         ref={emblaRef}
-        className="overflow-hidden w-4/5 mx-auto"
+        className="overflow-hidden w-4/5 mx-auto rounded-xl"
       >
         <div className="flex">
           {testimonials.map((user, idx) => (

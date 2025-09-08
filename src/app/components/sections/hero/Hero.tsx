@@ -6,10 +6,12 @@
  */
 import React from 'react'
 
+import Reviews from '../Reviews'
+
 const Hero = () => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 w-full">
-      <div className="flex flex-col lg:flex-row items-center justify-between">
+    <section className="relative py-16 md:py-24 lg:py-32 w-full ">
+      <div className="flex flex-col lg:flex-row items-center justify-between mb-12">
         {/* Left Content */}
         <div className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
@@ -51,6 +53,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <Reviews />
     </section>
   )
 }
