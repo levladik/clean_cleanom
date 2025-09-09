@@ -48,12 +48,13 @@ const Form = () => {
       </div>
       <form
         action="/api/submit"
-        className="w-full max-w-md mx-auto"
         method="POST"
         onSubmit={handleSubmit}
       >
         {/* Name (required) */}
-        <fieldset className="fieldset">
+        <fieldset className="fieldset bg-base-100 border-base-300 rounded-box border p-4 md:min-w-sm">
+          <legend className="fieldset-legend text-xl text-primary">Quick Application</legend>
+          <span className="label text-sm mb-2 text-wrap">Fill out the form and we'll contact you within 2 hours</span>
           <label className="input validator w-full">
             <User className="opacity-50" />
             <input
@@ -100,7 +101,7 @@ const Form = () => {
 
           {/* Info (optional) */}
           <textarea
-            className="input w-full mb-6 p-2 h-24"
+            className="input textarea text-wrap mb-6 p-2 h-24 w-full"
             name="info"
             onChange={handleChange}
             placeholder="Any additional information you want to provide"
@@ -108,7 +109,7 @@ const Form = () => {
           ></textarea>
 
           <button
-            className="btn btn-primary w-full rounded-xl"
+            className="btn btn-primary w-full rounded-xl mb-2"
             type="submit"
           >
             Submit

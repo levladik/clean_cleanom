@@ -1,3 +1,4 @@
+import Contacts from './Contacts'
 import Form from './Form'
 
 const Application = () => {
@@ -12,7 +13,14 @@ const Application = () => {
           Ready to transform your space? Contact us today for a free quote or to schedule your cleaning service.
         </p>
       </div>
-      <Form />
+      <div className="flex flex-col-reverse md:flex-row gap-6">
+        <div className="w-full flex-1">
+          <Contacts />
+        </div>
+        <div className="w-full flex-1">
+          <Form />
+        </div>
+      </div>
     </section>
   )
 }
