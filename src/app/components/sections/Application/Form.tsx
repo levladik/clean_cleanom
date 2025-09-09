@@ -1,49 +1,121 @@
-import { User, Mail, Phone } from 'lucide-react'
-import React from 'react'
+'use client'
+
+import { Mail, Phone, User } from 'lucide-react'
+import React, { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
+
+import { ApplicationFormData } from './form.interface'
 
 const Form = () => {
+  const [formData, setFormData] = useState<ApplicationFormData>({
+    name: '',
+    email: '',
+    phone: '',
+    info: '',
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const form = e.target as HTMLFormElement
+
+    if (!form.checkValidity()) {
+      form.reportValidity()
+
+      return
+    }
+
+    console.log(formData)
+    form.reset()
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      info: '',
+    })
+    toast.success('Your application has been sent!')
+  }
+
   return (
-    <fieldset className="fieldset bg-base-100 border-base-300 rounded-xl w-xs border p-4">
-      <legend className="fieldset-legend">Application Form</legend>
+    <>
+      <div>
+        <Toaster position="top-right" />
+      </div>
+      <form
+        action="/api/submit"
+        className="w-full max-w-md mx-auto"
+        method="POST"
+        onSubmit={handleSubmit}
+      >
+        {/* Name (required) */}
+        <fieldset className="fieldset">
+          <label className="input validator w-full">
+            <User className="opacity-50" />
+            <input
+              minLength={2}
+              name="name"
+              onChange={handleChange}
+              placeholder="Your name"
+              type="text"
+              value={formData.name}
+              required
+            />
+          </label>
+          <span className="validator-hint mt-0">Name is required and must be at least 2 characters.</span>
 
-      <label className="input">
-        <User className="w-5 h-5 opacity-50" />
-        <input
-          placeholder="Full Name"
-          type="text"
-          required
-        />
-      </label>
+          {/* Phone (required) */}
+          <label className="input validator w-full">
+            <Phone className="opacity-50" />
+            <input
+              name="phone"
+              onChange={handleChange}
+              pattern="\+?\-?\(?\)?\d{6,15}"
+              placeholder="+1234567890"
+              type="tel"
+              value={formData.phone}
+              required
+            />
+          </label>
+          <span className="validator-hint mt-0">Phone is required (6–15 numbers).</span>
 
-      <label className="input">
-        <Mail className="w-5 h-5 opacity-50" />
-        <input
-          placeholder="Email"
-          type="email"
-        />
-      </label>
+          {/* Email */}
+          <label className="input validator w-full">
+            <Mail className="opacity-50" />
+            <input
+              name="email"
+              onChange={handleChange}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              placeholder="@example@email.com"
+              type="email"
+              value={formData.email}
+              required
+            />
+          </label>
+          <span className="validator-hint mt-0">Please enter a valid email.</span>
 
-      <label className="input">
-        <Phone className="w-5 h-5 opacity-50" />
-        <input
-          className="tabular-nums"
-          maxLength={10}
-          minLength={10}
-          pattern="[0-9]*"
-          placeholder="Phone"
-          title="Must be 10 digits"
-          type="tel"
-          required
-        />
-      </label>
-      <p className="validator-hint">Must be 10 digits</p>
-      <textarea
-        className="textarea"
-        placeholder="Additional information"
-      ></textarea>
+          {/* Info (optional) */}
+          <textarea
+            className="input w-full mb-6 p-2 h-24"
+            name="info"
+            onChange={handleChange}
+            placeholder="Any additional information you want to provide"
+            value={formData.info}
+          ></textarea>
 
-      <button className="btn btn-neutral rounded-xl mt-4">Send Application</button>
-    </fieldset>
+          <button
+            className="btn btn-primary w-full rounded-xl"
+            type="submit"
+          >
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </>
   )
 }
 
