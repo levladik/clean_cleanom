@@ -54,7 +54,7 @@ const Form = () => {
         {/* Name (required) */}
         <fieldset className="fieldset bg-base-100 border-base-300 rounded-box border p-4 md:min-w-sm">
           <legend className="fieldset-legend text-xl text-primary">Quick Application</legend>
-          <span className="label text-sm mb-2 text-wrap">Fill out the form and we'll contact you within 2 hours</span>
+          <span className="label text-sm mb-2 text-wrap">Fill out the form and we&#39;ll contact you within 2 hours</span>
           <label className="input validator w-full">
             <User className="opacity-50" />
             <input

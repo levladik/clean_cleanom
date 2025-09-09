@@ -8,6 +8,7 @@ import Wrapper from './components/layout/Wrapper'
 import Application from './components/sections/Application/Application'
 import FAQ from './components/sections/FAQ'
 import Features from './components/sections/features/Features'
+import Footer from './components/sections/footer/Footer'
 import Gallery from './components/sections/gallery/Gallery'
 import Hero from './components/sections/hero/Hero'
 import Services from './components/sections/services/Services'
@@ -16,15 +17,18 @@ import Testimonials from './components/sections/Testimonials'
 
 export default function Home() {
   return (
-    <Wrapper className="flex justify-center flex-col">
-      <Hero />
-      <Services />
-      <Features />
-      <Steps />
-      <Gallery />
-      <Testimonials />
-      <FAQ />
-      <Application />
-    </Wrapper>
+    <>
+      <Wrapper className="flex justify-center flex-col">
+        <Hero />
+        <Services />
+        <Features />
+        <Steps />
+        <Gallery />
+        <Testimonials />
+        <FAQ />
+        <Application />
+      </Wrapper>
+      <Footer />
+    </>
   )
 }
