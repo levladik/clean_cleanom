@@ -1,5 +1,4 @@
 'use client'
-import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
@@ -35,7 +34,7 @@ export const testimonials = [
 ]
 
 const Carousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' }, [Autoplay({ delay: 4000 })])
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', watchDrag: false })
 
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
@@ -43,7 +42,6 @@ const Carousel = () => {
 
   const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
-  const scrollTo = useCallback((index: number) => emblaApi && emblaApi.scrollTo(index), [emblaApi])
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
@@ -61,27 +59,10 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full">
-      {/* Navigation Arrows */}
-      <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full disabled:opacity-30 cursor-pointer bg-primary"
-        disabled={!canScrollPrev}
-        onClick={scrollPrev}
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-
-      <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white p-2 rounded-full disabled:opacity-30 cursor-pointer bg-primary"
-        disabled={!canScrollNext}
-        onClick={scrollNext}
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
       {/* Carousel */}
       <div
         ref={emblaRef}
-        className="overflow-hidden w-4/5 mx-auto rounded-xl"
+        className="relative overflow-hidden w-4/5 mx-auto rounded-xl"
       >
         <div className="flex">
           {testimonials.map((user, idx) => (
@@ -93,19 +74,36 @@ const Carousel = () => {
             </div>
           ))}
         </div>
+
+        {/* Pagination Dots */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2 z-10">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                idx === selectedIndex ? 'bg-primary w-6' : 'bg-gray-400/50 hover:bg-gray-600'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="flex justify-center gap-2 mt-6">
-        {testimonials.map((_, idx) => (
-          <button
-            key={idx}
-            className={`w-3 h-3 rounded-full transition-all duration-200 cursor-pointer ${
-              idx === selectedIndex ? 'bg-primary w-6' : 'bg-gray-400/50 hover:bg-gray-600'
-            }`}
-            onClick={() => scrollTo(idx)}
-          />
-        ))}
+      {/* Navigation Arrows */}
+      <div className="flex justify-center gap-4 mt-8">
+        <button
+          className="btn btn-primary rounded-full"
+          disabled={!canScrollPrev}
+          onClick={scrollPrev}
+        >
+          <ChevronLeft className="w-10 h-10" />
+        </button>
+        <button
+          className="btn btn-primary rounded-full"
+          disabled={!canScrollNext}
+          onClick={scrollNext}
+        >
+          <ChevronRight className="w-10 h-10" />
+        </button>
       </div>
     </div>
   )

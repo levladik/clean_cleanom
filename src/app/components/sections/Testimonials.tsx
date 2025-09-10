@@ -1,6 +1,6 @@
 'use client'
 
-import { Star, Quote, ArrowLeft, ArrowRight } from 'lucide-react'
+import { Star, Quote, ChevronRight, ChevronLeft } from 'lucide-react'
 import { useState } from 'react'
 
 const reviews = [
@@ -109,27 +109,28 @@ const Testimonials = () => {
               {/* Navigation */}
               <div className="flex items-center justify-between">
                 <div className="flex gap-2">
-                  {reviews.map((_, index) => (
+                  {reviews.map((_, idx) => (
                     <button
-                      key={index}
-                      className={`w-2 h-2 rounded-full transition-smooth ${index === currentIndex ? 'bg-accent' : 'bg-base-100'}`}
-                      onClick={() => setCurrentIndex(index)}
+                      key={idx}
+                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                        idx === currentIndex ? 'bg-accent w-6' : 'bg-base-100 hover:bg-gray-600'
+                      }`}
                     />
                   ))}
                 </div>
 
                 <div className="flex gap-2">
                   <button
-                    className="btn w-12 h-12 rounded-xl cursor-pointer"
+                    className="btn btn-primary rounded-full border-2 border-base-100"
                     onClick={prevReview}
                   >
-                    <ArrowLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-10 h-10" />
                   </button>
                   <button
-                    className="btn w-12 h-12 rounded-xl cursor-pointer"
+                    className="btn btn-primary rounded-full border-2 border-base-100"
                     onClick={nextReview}
                   >
-                    <ArrowRight className="w-4 h-4" />
+                    <ChevronRight className="w-10 h-10" />
                   </button>
                 </div>
               </div>
