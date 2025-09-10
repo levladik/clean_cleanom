@@ -1,4 +1,4 @@
-import { HelpCircle, MessageSquare } from 'lucide-react'
+import { MessageSquare } from 'lucide-react'
 
 const FAQ = () => {
   const faqData = [
@@ -22,14 +22,12 @@ const FAQ = () => {
   ]
 
   return (
-    <section className="relative pb-16 md:pb-24 lg:pb-32 w-full">
+    <section
+      className="py-20 w-full"
+      id="FAQ"
+    >
       {/* Header */}
       <div className="text-center mb-16">
-        <div className="flex items-center justify-center gap-2 text-primary mb-4">
-          <HelpCircle className="w-6 h-6" />
-          <span className="text-lg font-medium">Frequently Asked Questions</span>
-        </div>
-
         <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
           Got
           <span className="text-primary"> Questions?</span>

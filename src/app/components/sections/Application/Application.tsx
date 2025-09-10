@@ -3,7 +3,10 @@ import Form from './Form'
 
 const Application = () => {
   return (
-    <section className="max-w-4xl m-auto items-center my-16">
+    <section
+      className="py-20 w-full max-w-4xl m-auto items-center"
+      id="contacts"
+    >
       <h2 className="text-center text-4xl lg:text-5xl font-bold text-foreground mb-18">
         Get In
         <span className="text-primary"> Touch</span>

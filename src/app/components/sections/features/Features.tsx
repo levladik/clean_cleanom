@@ -74,7 +74,10 @@ const advantages = [
 
 const Features = () => {
   return (
-    <section className="pb-16 md:pb-24 lg:pb-32 w-full">
+    <section
+      className="py-20 w-full"
+      id="thefeatures"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">

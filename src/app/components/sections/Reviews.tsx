@@ -2,7 +2,7 @@ import { Star } from 'lucide-react'
 
 const Reviews = () => {
   return (
-    <div className="grid grid-cols-2 w-full m-auto md:grid-cols-4 items-center gap-6 rounded-xl">
+    <div className="grid grid-cols-2 w-full m-auto sm:grid-cols-4 items-center gap-6 rounded-xl">
       <div className="text-center">
         <div className="p-6">
           <div className="text-xl font-bold text-emerald mb-2">4.8</div>

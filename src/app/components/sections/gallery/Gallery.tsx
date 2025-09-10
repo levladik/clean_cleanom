@@ -6,7 +6,10 @@ import Carousel from './Carousel'
 
 const Gallery = () => {
   return (
-    <>
+    <section
+      className="py-20 w-full"
+      id="gallery"
+    >
       <div className="text-center mb-16">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Leaf className="w-12 h-12 text-primary mb-2" />
@@ -20,7 +23,7 @@ const Gallery = () => {
         </p>
       </div>
       <Carousel />
-    </>
+    </section>
   )
 }
 export default Gallery

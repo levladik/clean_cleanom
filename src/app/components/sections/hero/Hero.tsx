@@ -10,7 +10,7 @@ import Reviews from '../Reviews'
 
 const Hero = () => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 w-full ">
+    <section className="py-20 w-full">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12">
         {/* Left Content */}
         <div className="lg:w-1/2 text-start lg:text-center lg:text-left mb-12 lg:mb-0">
@@ -21,7 +21,7 @@ const Hero = () => {
             Quality guaranteed cleaning for homes and offices. Experienced team, professional equipment, and flexible scheduling for your
             convenience.
           </p>
-          <div className="flex justify-center lg:justify-start space-x-4">
+          <div className="flex justify-start space-x-4">
             <button className="btn btn-primary btn-lg rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
               Get a Quote
             </button>

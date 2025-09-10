@@ -11,19 +11,25 @@ const Contacts = () => {
       </div>
       {/* Contacts */}
       <legend className="fieldset-legend text-xl text-primary">Contact Information</legend>
-      <div className="flex gap-2 items-center ">
-        <Phone className="text-primary w-7 h-7 md:w-9 h-9 mr-3" />
+      <div className="flex gap-2 items-center mb-5">
+        <Phone className="text-primary w-7 h-7 mr-3" />
         <div className="text-sm md:text-lg">
-          <p className="text-bold opacity-60">Phone number</p>
-          <a href="tel:+381611079692">061 107 9692</a>
+          <p className="opacity-60">Phone number</p>
+          <a
+            className="hover:underline"
+            href="tel:+381611079692"
+          >
+            061 107 9692
+          </a>
         </div>
       </div>
 
-      <div className="flex gap-2 items-center ">
-        <Mail className="text-primary w-7 h-7 md:w-9 h-9 mr-3" />
+      <div className="flex gap-2 items-center mb-5">
+        <Mail className="text-primary w-7 h-7 mr-3" />
         <div className="text-sm md:text-lg">
-          <p className="text-bold opacity-60">E-mail</p>
+          <p className="opacity-60">E-mail</p>
           <a
+            className="hover:underline"
             href="mailto:cleancleanom.rs@gmail.com"
             rel="noreferrer"
             target="_blank"
@@ -33,11 +39,12 @@ const Contacts = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 items-center ">
-        <MapPin className="text-primary w-7 h-7 md:w-9 h-9 mr-3" />
+      <div className="flex gap-2 items-center mb-5">
+        <MapPin className="text-primary w-7 h-7 mr-3" />
         <div className="text-sm md:text-lg">
-          <p className="text-bold opacity-60">Address</p>
+          <p className="opacity-60">Address</p>
           <a
+            className="hover:underline"
             href="https://www.google.com/maps/search/?api=1&query=Belgrade%2C%20Kirovljeva%203"
             rel="noreferrer"
             target="_blank"

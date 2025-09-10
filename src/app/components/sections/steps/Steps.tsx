@@ -15,7 +15,10 @@ const steps = [
 
 const Steps = () => {
   return (
-    <section className="pb-16 md:pb-24 lg:pb-32 w-full">
+    <section
+      className="py-20 max-w-xxl m-auto"
+      id="steps"
+    >
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Leaf className="w-12 h-12 text-primary mb-2" />
@@ -27,39 +30,34 @@ const Steps = () => {
           Simple 4-step process to get your space sparkling clean. From calculation to completion, we make it easy.
         </p>
       </div>
-      <div className="relative">
-        {/* Connection Line */}
-        <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald via-sage to-emerald transform -translate-y-1/2 z-0" />
-
-        <div className="grid lg:grid-cols-4 gap-8 relative z-10">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="relative"
-            >
-              <div className="group hover:shadow-medium transition-smooth hover:-translate-y-2">
-                <div className="p-6 text-center">
-                  {/* Icon */}
-                  <div className="flex justify-center mb-4 group-hover:scale-110 transition-smooth">
-                    <step.icon className="w-10 h-10 text-primary" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
-
-                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-0 sm:gap-3 relative">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="relative"
+          >
+            <div className="group hover:shadow-medium transition-smooth hover:-translate-y-2 mb-3">
+              <div className="p-2 sm:p-4 md:p-6 text-center">
+                {/* Icon */}
+                <div className="flex justify-center mb-4 group-hover:scale-110 transition-smooth">
+                  <step.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
                 </div>
+
+                {/* Content */}
+                <h3 className="text-sm md:text-xl font-semibold text-foreground mb-1 md:mb-3">{step.title}</h3>
+
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>
-
-              {/* Arrow for desktop */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                  <ArrowRight className="w-6 h-6 text-sage" />
-                </div>
-              )}
             </div>
-          ))}
-        </div>
+
+            {/* Arrow for desktop */}
+            {index < steps.length - 1 && (
+              <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                <ArrowRight className="w-6 h-6 text-sage" />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   )

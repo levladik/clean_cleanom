@@ -87,7 +87,7 @@ export default function Services() {
 
   return (
     <section
-      className="relative pb-16 md:pb-24 lg:pb-32 w-full"
+      className="py-20 w-full"
       id="services"
     >
       {/* Header */}

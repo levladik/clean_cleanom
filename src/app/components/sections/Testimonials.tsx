@@ -56,13 +56,16 @@ const Testimonials = () => {
   const currentReview = reviews[currentIndex]
 
   return (
-    <section className="py-20 bg-background">
+    <section
+      className="py-20 w-full"
+      id="testimonials"
+    >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Customer
-            <span className="text-emerald"> Reviews</span>
+            <span className="text-primary"> Reviews</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Don't just take our word for it. Here's what our satisfied customers have to say about our cleaning services.
