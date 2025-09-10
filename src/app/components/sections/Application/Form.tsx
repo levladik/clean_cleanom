@@ -11,6 +11,7 @@ const Form = () => {
     name: '',
     email: '',
     phone: '',
+    cleaningType: 'Генеральная',
     info: '',
   })
 
@@ -36,6 +37,7 @@ const Form = () => {
       name: '',
       email: '',
       phone: '',
+      cleaningType: 'Генеральная',
       info: '',
     })
     toast.success('Your application has been sent!')
@@ -98,6 +100,37 @@ const Form = () => {
             />
           </label>
           <span className="validator-hint mt-0">Please enter a valid email.</span>
+
+          {/* Cleaning Type (required) */}
+          <div className="join justify-center w-full m-auto mb-5">
+            <input
+              aria-label="Базовая"
+              checked={formData.cleaningType === 'Базовая'}
+              className="join-item btn w-[33.3%]"
+              name="cleaningType"
+              onChange={handleChange}
+              type="radio"
+              value="Базовая"
+            />
+            <input
+              aria-label="Генеральная"
+              checked={formData.cleaningType === 'Генеральная'}
+              className="join-item btn w-[33.3%]"
+              name="cleaningType"
+              onChange={handleChange}
+              type="radio"
+              value="Генеральная"
+            />
+            <input
+              aria-label="Ремонт"
+              checked={formData.cleaningType === 'Ремонт'}
+              className="join-item btn w-[33.3%]"
+              name="cleaningType"
+              onChange={handleChange}
+              type="radio"
+              value="Ремонт"
+            />
+          </div>
 
           {/* Info (optional) */}
           <textarea
