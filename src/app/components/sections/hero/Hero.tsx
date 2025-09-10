@@ -13,7 +13,7 @@ const Hero = () => {
     <section className="relative py-16 md:py-24 lg:py-32 w-full ">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12">
         {/* Left Content */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+        <div className="lg:w-1/2 text-start lg:text-center lg:text-left mb-12 lg:mb-0">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
             Professional <span className="text-primary">Cleaning Service</span> in Belgrade
           </h1>
@@ -29,19 +29,7 @@ const Hero = () => {
           </div>
           {/* Placeholder for rating if available */}
           <div className="mt-8 flex items-center justify-center lg:justify-start space-x-2">
-            {/* Example: Star rating */}
-            <div className="flex text-yellow-400">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-5 h-5 fill-current"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z" />
-                </svg>
-              ))}
-            </div>
-            <span className="text-sm font-medium text-gray-700">(4.8/5 based on 1000+ reviews)</span>
+            <Reviews />
           </div>
         </div>
 
@@ -53,7 +41,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <Reviews />
     </section>
   )
 }
