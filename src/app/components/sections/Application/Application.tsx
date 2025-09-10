@@ -3,17 +3,12 @@ import Form from './Form'
 
 const Application = () => {
   return (
-    <section className="flex flex-col items-center my-16">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-          Get In
-          <span className="text-primary"> Touch</span>
-        </h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Ready to transform your space? Contact us today for a free quote or to schedule your cleaning service.
-        </p>
-      </div>
-      <div className="flex flex-col-reverse md:flex-row gap-6">
+    <section className="max-w-4xl m-auto items-center my-16">
+      <h2 className="text-center text-4xl lg:text-5xl font-bold text-foreground mb-18">
+        Get In
+        <span className="text-primary"> Touch</span>
+      </h2>
+      <div className="flex flex-col-reverse md:flex-row gap-20">
         <div className="w-full flex-1">
           <Contacts />
         </div>

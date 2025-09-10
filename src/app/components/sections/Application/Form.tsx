@@ -54,7 +54,7 @@ const Form = () => {
         onSubmit={handleSubmit}
       >
         {/* Name (required) */}
-        <fieldset className="fieldset bg-base-100 border-base-300 rounded-box border p-4 md:min-w-sm">
+        <fieldset className="fieldset bg-base-100 border-base-300 rounded-box border p-4">
           <legend className="fieldset-legend text-xl text-primary">Quick Application</legend>
           <span className="label text-sm mb-2 text-wrap">Fill out the form and we&#39;ll contact you within 2 hours</span>
           <label className="input validator w-full">
@@ -102,11 +102,11 @@ const Form = () => {
           <span className="validator-hint mt-0">Please enter a valid email.</span>
 
           {/* Cleaning Type (required) */}
-          <div className="join justify-center w-full m-auto mb-5">
+          <div className="join join-vertical sm:join-horizontal justify-center w-full m-auto mb-5">
             <input
               aria-label="Базовая"
               checked={formData.cleaningType === 'Базовая'}
-              className="join-item btn w-[33.3%]"
+              className="join-item btn w-full sm:w-[33.3%]"
               name="cleaningType"
               onChange={handleChange}
               type="radio"
@@ -115,7 +115,7 @@ const Form = () => {
             <input
               aria-label="Генеральная"
               checked={formData.cleaningType === 'Генеральная'}
-              className="join-item btn w-[33.3%]"
+              className="join-item btn w-full sm:w-[33.3%]"
               name="cleaningType"
               onChange={handleChange}
               type="radio"
@@ -124,7 +124,7 @@ const Form = () => {
             <input
               aria-label="Ремонт"
               checked={formData.cleaningType === 'Ремонт'}
-              className="join-item btn w-[33.3%]"
+              className="join-item btn w-full sm:w-[33.3%]"
               name="cleaningType"
               onChange={handleChange}
               type="radio"
