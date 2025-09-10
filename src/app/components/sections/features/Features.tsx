@@ -75,7 +75,7 @@ const advantages = [
 const Features = () => {
   return (
     <section
-      className="py-20 w-full"
+      className="pt-20 w-full"
       id="thefeatures"
     >
       <div className="container mx-auto px-4">
@@ -83,7 +83,7 @@ const Features = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Leaf className="w-12 h-12 text-primary mb-2" />
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Why
               <span className="text-primary"> Clean Cleanom</span>
             </h2>
@@ -107,7 +107,7 @@ const Features = () => {
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="relative border-2 border-base-300 rounded-xl px-6 pb-3 pt-8"
+              className="relative border-2 border-base-300 rounded-xl px-6 pb-3 pt-8 shadow-md"
             >
               <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 badge badge-primary rounded-full p-2 ms-auto">
                 {advantage.icon}
@@ -118,7 +118,7 @@ const Features = () => {
           ))}
 
           {/* Stats block */}
-          <div className="stats stats-vertical border-2 border-base-300">
+          <div className="stats stats-vertical border-2 border-base-300 shadow-md">
             <div className="stat flex items-center justify-center py-1 px-2">
               <div className="stat-value text-xl text-primary">1 000+</div>
               <div className="stat-title text-sm">Satisfied Customers</div>

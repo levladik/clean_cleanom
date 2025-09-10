@@ -16,13 +16,13 @@ const steps = [
 const Steps = () => {
   return (
     <section
-      className="py-20 max-w-xxl m-auto"
+      className="pt-20 max-w-xxl m-auto"
       id="steps"
     >
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Leaf className="w-12 h-12 text-primary mb-2" />
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             How It <span className="text-primary">Works</span>
           </h2>
         </div>
@@ -36,7 +36,7 @@ const Steps = () => {
             key={index}
             className="relative"
           >
-            <div className="group hover:shadow-medium transition-smooth hover:-translate-y-2 mb-3">
+            <div className="group hover:shadow-medium hover:-translate-y-1 transition-smooth mb-3">
               <div className="p-2 sm:p-4 md:p-6 text-center">
                 {/* Icon */}
                 <div className="flex justify-center mb-4 group-hover:scale-110 transition-smooth">
@@ -44,7 +44,7 @@ const Steps = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-sm md:text-xl font-semibold text-foreground mb-1 md:mb-3">{step.title}</h3>
+                <h3 className="text-sm md:text-xl font-semibold mb-1 md:mb-3">{step.title}</h3>
 
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
               </div>

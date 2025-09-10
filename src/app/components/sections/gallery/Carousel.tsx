@@ -64,7 +64,7 @@ const Carousel = () => {
         ref={emblaRef}
         className="relative overflow-hidden w-4/5 mx-auto rounded-xl"
       >
-        <div className="flex">
+        <div className="flex ">
           {testimonials.map((user, idx) => (
             <div
               key={idx}
@@ -91,14 +91,14 @@ const Carousel = () => {
       {/* Navigation Arrows */}
       <div className="flex justify-center gap-4 mt-8">
         <button
-          className="btn btn-primary rounded-full"
+          className="btn btn-primary rounded-full rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
           disabled={!canScrollPrev}
           onClick={scrollPrev}
         >
           <ChevronLeft className="w-10 h-10" />
         </button>
         <button
-          className="btn btn-primary rounded-full"
+          className="btn btn-primary rounded-full rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
           disabled={!canScrollNext}
           onClick={scrollNext}
         >

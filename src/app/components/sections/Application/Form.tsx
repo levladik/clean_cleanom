@@ -102,7 +102,7 @@ const Form = () => {
           <span className="validator-hint mt-0">Please enter a valid email.</span>
 
           {/* Cleaning Type (required) */}
-          <div className="join join-vertical sm:join-horizontal justify-center w-full m-auto mb-5">
+          <div className="join join-vertical sm:join-horizontal justify-center w-full rounded-full m-auto mb-5">
             <input
               aria-label="Базовая"
               checked={formData.cleaningType === 'Базовая'}
@@ -142,7 +142,7 @@ const Form = () => {
           ></textarea>
 
           <button
-            className="btn btn-primary w-full rounded-xl mb-2"
+            className="btn btn-primary w-full rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 mb-2"
             type="submit"
           >
             Submit

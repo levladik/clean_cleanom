@@ -10,7 +10,7 @@ import { Circle, CircleCheck, Clock, Users } from 'lucide-react'
 export default function ServiceCard({ title, cleaners, duration, price, features, popular }) {
   return (
     <div
-      className={clsx('relative rounded-xl bg-base-100 border-2 border-base-300 p-4 flex flex-col gap-2 justify-start items-start', {
+      className={clsx('relative rounded-xl bg-base-100 border-2 border-base-300 p-4 flex flex-col gap-2 justify-start items-start shadow-lg', {
         'ring-2 ring-primary border-none': popular,
       })}
     >
@@ -32,7 +32,7 @@ export default function ServiceCard({ title, cleaners, duration, price, features
         </div>
       </div>
 
-      <button className="btn btn-primary btn-lg w-full uppercase rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 mb-3">Заказать</button>
+      <button className="btn btn-primary btn-lg w-full uppercase rounded-full shadow-lg hover:shadow-xl mb-3">Заказать</button>
 
       <div>
         <ul className="space-y-2 text-sm">

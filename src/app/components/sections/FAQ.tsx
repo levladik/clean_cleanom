@@ -1,4 +1,4 @@
-import { MessageSquare } from 'lucide-react'
+import { Leaf, MessageSquare } from 'lucide-react'
 
 const FAQ = () => {
   const faqData = [
@@ -23,15 +23,18 @@ const FAQ = () => {
 
   return (
     <section
-      className="py-20 w-full"
+      className="pt-20 w-full"
       id="FAQ"
     >
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-          Got
-          <span className="text-primary"> Questions?</span>
-        </h2>
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Leaf className="w-12 h-12 text-primary mb-2" />
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            Got
+            <span className="text-primary"> Questions?</span>
+          </h2>
+        </div>
 
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Find answers to the most common questions about our cleaning services. Can't find what you're looking for? Contact us directly.
@@ -58,7 +61,7 @@ const FAQ = () => {
 
       {/* CTA */}
       <div className="text-center">
-        <div className="max-w-3xl m-auto bg-primary text-primary-content rounded-xl">
+        <div className="max-w-3xl m-auto bg-primary text-primary-content rounded-xl shadow-lg">
           <div className="p-8">
             <MessageSquare className="w-12 h-12 mx-auto mb-4 opacity-90" />
 
@@ -68,7 +71,7 @@ const FAQ = () => {
               Our friendly customer service team is here to help. Get in touch and we'll answer any questions you have.
             </p>
 
-            <button className="btn btn-outline rounded-xl">
+            <button className="btn btn-outline rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
               <MessageSquare className="w-4 h-4 mr-2" />
               Ask a Question
             </button>

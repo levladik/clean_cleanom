@@ -5,6 +5,7 @@
  * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS. Uses React state for toggling additional services.
  */
 'use client'
+import { Leaf } from 'lucide-react'
 import React, { useState } from 'react'
 
 import ServiceCard from './ServiceCard'
@@ -87,15 +88,18 @@ export default function Services() {
 
   return (
     <section
-      className="py-20 w-full"
+      className="pt-20 w-full"
       id="services"
     >
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-          Our Cleaning
-          <span className="text-primary"> Services</span>
-        </h2>
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Leaf className="w-12 h-12 text-primary mb-2" />
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            Our Cleaning
+            <span className="text-primary"> Services</span>
+          </h2>
+        </div>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           Professional cleaning solutions for every need. From basic maintenance to deep renovation cleanup, we deliver exceptional results.
         </p>
@@ -129,7 +133,7 @@ export default function Services() {
                 key={service.title}
                 className="flex items-center bg-base-100 p-3 rounded-lg shadow-sm"
               >
-                <h3 className="text-lg font-bold text-foreground me-2">{service.title}</h3>
+                <h3 className="text-lg font-bold me-2">{service.title}</h3>
                 <p className="text-muted-foreground">{service.price}</p>
               </div>
             ))}

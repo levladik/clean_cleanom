@@ -1,6 +1,6 @@
 'use client'
 
-import { Star, Quote, ChevronRight, ChevronLeft } from 'lucide-react'
+import { Star, Quote, ChevronRight, ChevronLeft, Leaf } from 'lucide-react'
 import { useState } from 'react'
 
 const reviews = [
@@ -57,23 +57,26 @@ const Testimonials = () => {
 
   return (
     <section
-      className="py-20 w-full"
+      className="pt-20 w-full"
       id="testimonials"
     >
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Customer
-            <span className="text-primary"> Reviews</span>
-          </h2>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Leaf className="w-12 h-12 text-primary mb-2" />
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Customer
+              <span className="text-primary"> Reviews</span>
+            </h2>
+          </div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Don't just take our word for it. Here's what our satisfied customers have to say about our cleaning services.
           </p>
         </div>
 
         {/* Featured Review Slider */}
-        <div className="max-w-5xl mx-auto mb-16 bg-primary text-primary-content rounded-xl">
+        <div className="max-w-5xl mx-auto mb-16 bg-primary text-primary-content rounded-xl shadow-lg">
           <div className="bg-gradient-subtle border-sage/30 shadow-large">
             <div className="p-8 md:p-12">
               <div className="flex items-start gap-4 mb-6">
@@ -88,7 +91,7 @@ const Testimonials = () => {
                     ))}
                   </div>
 
-                  <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-6">"{currentReview.text}"</blockquote>
+                  <blockquote className="text-lg md:text-xl leading-relaxed mb-6">"{currentReview.text}"</blockquote>
 
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-4">

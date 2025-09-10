@@ -64,7 +64,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-primary rounded-2xl">Button</a>
+        <a className="btn btn-primary rounded-full shadow-lg">Button</a>
       </div>
     </div>
   )

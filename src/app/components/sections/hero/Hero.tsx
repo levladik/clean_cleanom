@@ -10,7 +10,7 @@ import Reviews from '../Reviews'
 
 const Hero = () => {
   return (
-    <section className="py-20 w-full">
+    <section className="pt-20 w-full">
       <div className="flex flex-col lg:flex-row items-center justify-between mb-12">
         {/* Left Content */}
         <div className="lg:w-1/2 text-start lg:text-center lg:text-left mb-12 lg:mb-0">
