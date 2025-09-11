@@ -7,7 +7,9 @@
 import clsx from 'clsx'
 import { Circle, CircleCheck, Clock, Users } from 'lucide-react'
 
-export default function ServiceCard({ title, cleaners, duration, price, features, popular }) {
+import { ServiceCardProps } from './service.interface'
+
+export default function ServiceCard({ title, cleaners, duration, price, features, popular }: ServiceCardProps) {
   return (
     <div
       className={clsx(

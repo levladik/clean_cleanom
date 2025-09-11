@@ -9,9 +9,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
 import React, { useCallback, useEffect, useState } from 'react'
 
+import { AdditionalService, ServiceCardProps, ServicesProps } from './service.interface'
 import ServiceCard from './ServiceCard'
 
-const servicesData = [
+const defaultServicesData: ServiceCardProps[] = [
   {
     title: 'Базовая',
     cleaners: '2 клинера',
@@ -70,7 +71,7 @@ const servicesData = [
   },
 ]
 
-const additionalServicesData = [
+const defaultAdditionalServicesData: AdditionalService[] = [
   { title: 'Уборка балконов и террас', price: '1000 дин за 10м2' },
   { title: 'Мытье окон', price: 'от 2 000 дин' },
   { title: 'Мытье стеклянных ограждений на террасах', price: 'от 1 000 дин' },
@@ -80,7 +81,10 @@ const additionalServicesData = [
   { title: 'Привоз профессионального оборудования', price: 'от 3 000 дин' },
 ]
 
-export default function Services() {
+export default function Services({
+  servicesData = defaultServicesData,
+  additionalServicesData = defaultAdditionalServicesData,
+}: ServicesProps) {
   const [showAdditionalServices, setShowAdditionalServices] = useState(false)
 
   const toggleAdditionalServices = () => {
@@ -140,14 +144,7 @@ export default function Services() {
               key={idx}
               className="flex-none px-3 pb-8 min-w-full"
             >
-              <ServiceCard
-                cleaners={service.cleaners}
-                duration={service.duration}
-                features={service.features}
-                popular={service.popular}
-                price={service.price}
-                title={service.title}
-              />
+              <ServiceCard {...service} />
             </div>
           ))}
         </div>
