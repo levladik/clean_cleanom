@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export const TestimonialSlider = ({ pics }) => {
+export const CarouselItem = ({ pics }) => {
   return (
     <figure
       className="diff aspect-16/7 rounded-xl"
@@ -38,4 +38,4 @@ export const TestimonialSlider = ({ pics }) => {
   )
 }
 
-export default TestimonialSlider
+export default CarouselItem

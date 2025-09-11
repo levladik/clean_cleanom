@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 
-import TestimonialSlider from './TestimonialSlider'
+import { CarouselItem } from './CarouselItem'
 
 export const testimonials = [
   {
@@ -65,7 +65,7 @@ const Carousel = () => {
               key={idx}
               className="flex-none px-3 min-w-full"
             >
-              <TestimonialSlider pics={pics}/>
+              <CarouselItem pics={pics} />
             </div>
           ))}
         </div>
