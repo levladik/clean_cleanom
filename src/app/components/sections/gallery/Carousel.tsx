@@ -7,29 +7,24 @@ import TestimonialSlider from './TestimonialSlider'
 
 export const testimonials = [
   {
-    quote: 'This service saved me hours every week. Absolutely love the simplicity!',
-    name: 'Sarah Johnson',
-    picture: 'https://picsum.photos/id/1011/600/400',
+    before: 'https://picsum.photos/id/1011/600/400',
+    after: 'https://picsum.photos/id/1011/600/400',
   },
   {
-    quote: 'The team was professional, efficient, and exceeded all my expectations.',
-    name: 'Michael Lee',
-    picture: 'https://picsum.photos/id/1005/600/400',
+    before: 'https://picsum.photos/id/1005/600/400',
+    after: 'https://picsum.photos/id/1005/600/400',
   },
   {
-    quote: 'I finally found a solution that works flawlessly. Highly recommended!',
-    name: 'Emma Brown',
-    picture: 'https://picsum.photos/id/1012/600/400',
+    before: 'https://picsum.photos/id/1012/600/400',
+    after: 'https://picsum.photos/id/1012/600/400',
   },
   {
-    quote: 'Great experience from start to finish. I’ll definitely use it again.',
-    name: 'Daniel Garcia',
-    picture: 'https://picsum.photos/id/1027/600/400',
+    before: 'https://picsum.photos/id/1027/600/400',
+    after: 'https://picsum.photos/id/1027/600/400',
   },
   {
-    quote: 'Fast, reliable, and super easy to use. Couldn’t ask for more.',
-    name: 'Olivia Wilson',
-    picture: 'https://picsum.photos/id/1025/600/400',
+    before: 'https://picsum.photos/id/1025/600/400',
+    after: 'https://picsum.photos/id/1025/600/400',
   },
 ]
 
@@ -64,13 +59,13 @@ const Carousel = () => {
         ref={emblaRef}
         className="relative overflow-hidden w-4/5 mx-auto rounded-xl"
       >
-        <div className="flex ">
-          {testimonials.map((user, idx) => (
+        <div className="flex">
+          {testimonials.map((pics, idx) => (
             <div
               key={idx}
               className="flex-none px-3 min-w-full"
             >
-              <TestimonialSlider user={user} />
+              <TestimonialSlider pics={pics}/>
             </div>
           ))}
         </div>
@@ -80,9 +75,7 @@ const Carousel = () => {
           {testimonials.map((_, idx) => (
             <button
               key={idx}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                idx === selectedIndex ? 'bg-primary w-6' : 'bg-gray-400/50 hover:bg-gray-600'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${idx === selectedIndex ? 'bg-primary w-6' : 'bg-gray-400/50'}`}
             />
           ))}
         </div>

@@ -1,26 +1,36 @@
-export const TestimonialSlider = ({ user }) => {
+import Image from 'next/image'
+
+export const TestimonialSlider = ({ pics }) => {
   return (
     <figure
-      className="diff aspect-16/9 rounded-xl"
+      className="diff aspect-16/7 rounded-xl"
       tabIndex={0}
     >
       <div
-        className="diff-item-1"
+        className="diff-item-1 relative"
         role="img"
         tabIndex={0}
       >
-        <img
+        <Image
           alt="daisy"
-          src="https://img.daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a.webp"
+          className="object-cover rounded-xl"
+          height={100}
+          quality={50}
+          src={pics.before}
+          width={100}
         />
       </div>
       <div
-        className="diff-item-2"
+        className="diff-item-2 relative"
         role="img"
       >
-        <img
+        <Image
           alt="daisy"
-          src="https://img.daisyui.com/images/stock/photo-1560717789-0ac7c58ac90a-blur.webp"
+          className="object-cover rounded-xl"
+          height={100}
+          src={pics.after}
+          width={100}
+          unoptimized
         />
       </div>
       <div className="diff-resizer"></div>
