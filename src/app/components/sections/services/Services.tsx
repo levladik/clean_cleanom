@@ -88,7 +88,7 @@ export default function Services() {
 
   return (
     <section
-      className="pt-20 w-full"
+      className="pt-20 w-full max-w-6xl mx-auto"
       id="services"
     >
       {/* Header */}

@@ -16,7 +16,7 @@ const steps = [
 const Steps = () => {
   return (
     <section
-      className="pt-20 max-w-xxl m-auto"
+      className="pt-20 w-full max-w-6xl mx-auto"
       id="steps"
     >
       <div className="text-center mb-12">

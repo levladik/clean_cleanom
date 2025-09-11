@@ -75,7 +75,7 @@ const advantages = [
 const Features = () => {
   return (
     <section
-      className="pt-20 w-full"
+      className="pt-20 w-full max-w-6xl mx-auto"
       id="thefeatures"
     >
       <div className="container mx-auto px-4">
