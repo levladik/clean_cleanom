@@ -18,7 +18,7 @@ const Gallery = () => {
           </h2>
         </div>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          Don't just take our word for it. Here's what our satisfied customers have to say about our cleaning services.
+          Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about our cleaning services.
         </p>
       </div>
       <Carousel />

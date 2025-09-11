@@ -37,7 +37,8 @@ const FAQ = () => {
         </div>
 
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Find answers to the most common questions about our cleaning services. Can't find what you're looking for? Contact us directly.
+          Find answers to the most common questions about our cleaning services. Can&apos;t find what you&apos;re looking for? Contact us
+          directly.
         </p>
       </div>
 
@@ -68,7 +69,7 @@ const FAQ = () => {
             <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
 
             <p className="text-lg opacity-90 mb-6 max-w-md mx-auto">
-              Our friendly customer service team is here to help. Get in touch and we'll answer any questions you have.
+              Our friendly customer service team is here to help. Get in touch and we&apos;ll answer any questions you have.
             </p>
 
             <button className="btn btn-outline rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
