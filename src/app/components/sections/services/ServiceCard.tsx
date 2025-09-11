@@ -10,9 +10,12 @@ import { Circle, CircleCheck, Clock, Users } from 'lucide-react'
 export default function ServiceCard({ title, cleaners, duration, price, features, popular }) {
   return (
     <div
-      className={clsx('relative rounded-xl bg-base-100 border-2 border-base-300 p-4 flex flex-col gap-2 justify-start items-start shadow-lg', {
-        'ring-2 ring-primary border-none': popular,
-      })}
+      className={clsx(
+        'w-full max-w-md h-full mx-auto relative rounded-xl bg-base-100 border-2 border-base-300 p-4 flex flex-col gap-2 justify-start items-start shadow-lg',
+        {
+          'ring-2 ring-primary border-none': popular,
+        },
+      )}
     >
       {popular ? <span className="badge badge-accent absolute p-3 -top-4 left-1/2 transform -translate-x-1/2">Most popular</span> : null}
       <div className="flex flex-col mb-5">

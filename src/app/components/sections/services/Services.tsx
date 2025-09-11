@@ -5,8 +5,9 @@
  * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS. Uses React state for toggling additional services.
  */
 'use client'
-import { Leaf } from 'lucide-react'
-import React, { useState } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
+import { ChevronLeft, ChevronRight, Leaf } from 'lucide-react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import ServiceCard from './ServiceCard'
 
@@ -86,6 +87,30 @@ export default function Services() {
     setShowAdditionalServices(!showAdditionalServices)
   }
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', watchDrag: true })
+
+  // Embla Carousel
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(false)
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+    setCanScrollPrev(emblaApi.canScrollPrev())
+    setCanScrollNext(emblaApi.canScrollNext())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    onSelect()
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onSelect)
+  }, [emblaApi, onSelect])
+
   return (
     <section
       className="pt-20 w-full max-w-6xl mx-auto"
@@ -104,18 +129,55 @@ export default function Services() {
           Professional cleaning solutions for every need. From basic maintenance to deep renovation cleanup, we deliver exceptional results.
         </p>
       </div>
-      <div className="services_wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {servicesData.map((service, index) => (
-          <ServiceCard
-            key={index}
-            cleaners={service.cleaners}
-            duration={service.duration}
-            features={service.features}
-            popular={service.popular}
-            price={service.price}
-            title={service.title}
-          />
-        ))}
+
+      <div
+        ref={emblaRef}
+        className="relative overflow-hidden mx-auto rounded-xl"
+      >
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-3 py-6">
+          {servicesData.map((service, idx) => (
+            <div
+              key={idx}
+              className="flex-none px-3 pb-8 min-w-full"
+            >
+              <ServiceCard
+                cleaners={service.cleaners}
+                duration={service.duration}
+                features={service.features}
+                popular={service.popular}
+                price={service.price}
+                title={service.title}
+              />
+            </div>
+          ))}
+        </div>
+        {/* Pagination Dots */}
+        <div className="absolute md:hidden bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2 z-10">
+          {servicesData.map((_, idx) => (
+            <button
+              key={idx}
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${idx === selectedIndex ? 'bg-primary w-6' : 'bg-gray-400/50'}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <div className="flex md:hidden justify-center gap-4 mt-2">
+        <button
+          className="btn btn-primary rounded-full rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+          disabled={!canScrollPrev}
+          onClick={scrollPrev}
+        >
+          <ChevronLeft className="w-10 h-10" />
+        </button>
+        <button
+          className="btn btn-primary rounded-full rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300"
+          disabled={!canScrollNext}
+          onClick={scrollNext}
+        >
+          <ChevronRight className="w-10 h-10" />
+        </button>
       </div>
 
       {/* Additional Services Dropdown */}
