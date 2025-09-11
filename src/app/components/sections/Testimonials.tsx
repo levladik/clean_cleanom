@@ -60,7 +60,7 @@ const Testimonials = () => {
       className="pt-20 w-full"
       id="testimonials"
     >
-      <div className="container mx-auto px-4">
+      <div className="container max-w-5xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">

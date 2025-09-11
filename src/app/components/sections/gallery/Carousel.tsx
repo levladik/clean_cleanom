@@ -53,11 +53,11 @@ const Carousel = () => {
   }, [emblaApi, onSelect])
 
   return (
-    <div className="relative w-full">
+    <div className="relative max-w-5xl m-auto">
       {/* Carousel */}
       <div
         ref={emblaRef}
-        className="relative overflow-hidden w-4/5 mx-auto rounded-xl"
+        className="relative overflow-hidden mx-auto rounded-xl"
       >
         <div className="flex">
           {testimonials.map((pics, idx) => (

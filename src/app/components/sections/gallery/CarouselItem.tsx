@@ -3,7 +3,7 @@ import Image from 'next/image'
 export const CarouselItem = ({ pics }) => {
   return (
     <figure
-      className="diff aspect-16/7 rounded-xl"
+      className="diff aspect-square md:aspect-16/7 rounded-xl"
       tabIndex={0}
     >
       <div
