@@ -1,6 +1,8 @@
 import Image from 'next/image'
 
-export const CarouselItem = ({ pics }) => {
+import { CarouselItemProps } from './carousel.interface'
+
+export const CarouselItem = ({ pics }: CarouselItemProps) => {
   return (
     <figure
       className="diff aspect-square md:aspect-16/7 rounded-xl"

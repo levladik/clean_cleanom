@@ -3,9 +3,10 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 
+import { ImagePair } from './carousel.interface'
 import { CarouselItem } from './CarouselItem'
 
-export const testimonials = [
+export const testimonials: ImagePair[] = [
   {
     before: 'https://picsum.photos/id/1011/600/400',
     after: 'https://picsum.photos/id/1011/600/400',
