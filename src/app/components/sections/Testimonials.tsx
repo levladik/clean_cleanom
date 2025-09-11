@@ -118,9 +118,7 @@ const Testimonials = () => {
                   {reviews.map((_, idx) => (
                     <button
                       key={idx}
-                      className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                        idx === currentIndex ? 'bg-accent w-6' : 'bg-base-100 hover:bg-gray-600'
-                      }`}
+                      className={`w-3 h-3 rounded-full transition-all duration-200 ${idx === currentIndex ? 'bg-accent w-6' : 'bg-base-100'}`}
                     />
                   ))}
                 </div>
