@@ -1,6 +1,6 @@
 'use client'
 
-import { Star, Quote, ChevronRight, ChevronLeft, Leaf } from 'lucide-react'
+import { Star, ChevronRight, ChevronLeft, Leaf } from 'lucide-react'
 import { useState } from 'react'
 
 const reviews = [
@@ -78,9 +78,8 @@ const Testimonials = () => {
         {/* Featured Review Slider */}
         <div className="max-w-5xl mx-auto mb-16 bg-primary text-primary-content rounded-xl shadow-lg">
           <div className="bg-gradient-subtle border-sage/30 shadow-large">
-            <div className="p-8 md:p-12">
+            <div className="p-6 md:p-12">
               <div className="flex items-start gap-4 mb-6">
-                <Quote className="w-8 h-8 fill-primary text-base-content flex-shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-1 mb-3">
                     {[...Array(currentReview.rating)].map((_, i) => (
@@ -91,7 +90,7 @@ const Testimonials = () => {
                     ))}
                   </div>
 
-                  <blockquote className="text-lg md:text-xl leading-relaxed mb-6">"{currentReview.text}"</blockquote>
+                  <blockquote className="text-lg md:text-xl leading-relaxed mb-6">«{currentReview.text}»</blockquote>
 
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
@@ -113,7 +112,7 @@ const Testimonials = () => {
               </div>
 
               {/* Navigation */}
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
                 <div className="flex gap-2">
                   {reviews.map((_, idx) => (
                     <button

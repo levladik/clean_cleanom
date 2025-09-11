@@ -62,7 +62,7 @@ const FAQ = () => {
       {/* CTA */}
       <div className="text-center">
         <div className="max-w-3xl m-auto bg-primary text-primary-content rounded-xl shadow-lg">
-          <div className="p-8">
+          <div className="p-6 md:p-8">
             <MessageSquare className="w-12 h-12 mx-auto mb-4 opacity-90" />
 
             <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>

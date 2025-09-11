@@ -6,7 +6,7 @@ import Form from './Form'
 const Application = () => {
   return (
     <section
-      className="pt-20 w-full max-w-4xl m-auto items-center"
+      className="py-20 w-full max-w-4xl m-auto items-center"
       id="contacts"
     >
       <div className="flex items-center justify-center gap-2 mb-18">

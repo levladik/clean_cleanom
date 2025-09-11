@@ -10,12 +10,13 @@
 *   [ ] Implement static generation for posts using `generateStaticParams` and Server Components.
 *   [ ] Create a page component to display fetched posts using DaisyUI components.
 *   [ ] Test the setup and data fetching.
-*   [ ] Unify section paddings and margins for all the components
-*   [ ] Add max width for all the sections 
+*   [x] Unify section paddings and margins for all the components
+*   [x] Add max width for all the sections 
 *   [x] Fix Carousel and Testimonials component's names.
 *   [x] Add 'goUp' button
 *   [x] Replace img tag with Next js Image tag
-*   [ ] Check responsive layout for all the components
+*   [x] Check responsive layout for all the components
+*   [ ] Add carousel to the Service component
 
 ## Current Status
 The project is in the planning phase, with the tech stack defined and initial setup confirmed. Ready to proceed with implementation steps.
