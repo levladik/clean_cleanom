@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react'
 
-const Reviews = () => {
+const Stats = () => {
   return (
     <div className="grid grid-cols-2 w-full m-auto sm:grid-cols-4 items-center gap-6 rounded-xl">
       <div className="text-center">
@@ -41,4 +41,4 @@ const Reviews = () => {
     </div>
   )
 }
-export default Reviews
+export default Stats

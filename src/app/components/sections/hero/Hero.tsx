@@ -6,7 +6,7 @@
  */
 import React from 'react'
 
-import Reviews from '../Reviews'
+import Reviews from '../stats/Stats'
 
 const Hero = () => {
   return (
@@ -33,7 +33,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Content - Image */}
+        {/* Right Content - Calculator */}
         <div className="lg:w-1/2 flex justify-center lg:justify-end">
           {/* Placeholder for the smiling photo */}
           <div className="w-full max-w-md lg:max-w-lg h-96 bg-gray-300 rounded-lg shadow-xl flex items-center justify-center">
