@@ -8,7 +8,9 @@
 'use client'
 import { useState } from 'react'
 
+import AddonsList from './AddonsList'
 import AreaPicker from './AreaPicker'
+import TotalPrice from './TotalPrice'
 
 const tabs = ['Base', 'Deep', 'Rennovation']
 
@@ -36,6 +38,8 @@ const Calculator = () => {
         ))}
       </div>
       <AreaPicker />
+      <AddonsList />
+      <TotalPrice />
     </div>
   )
 }
