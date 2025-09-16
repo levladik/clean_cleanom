@@ -6,38 +6,20 @@
  */
 
 'use client'
-import { useState } from 'react'
 
 import AddonsList from './AddonsList'
 import AreaPicker from './AreaPicker'
+import CleanTypePicker from './CleanTypePicker'
 import TotalPrice from './TotalPrice'
 
-const tabs = ['Base', 'Deep', 'Rennovation']
-
 const Calculator = () => {
-  const [activeTab, setActiveTab] = useState('Deep')
-
   return (
-    <div className="bg-base-300 w-xl">
-      {/* Tabs */}
-      <div
-        className="tabs tabs-lift"
-        role="tablist"
-      >
-        {tabs.map((tab, idx) => (
-          <a
-            key={idx}
-            className={`tab ${activeTab === tab ? 'tab-active' : ''}`}
-            onClick={(e) => {
-              e.preventDefault()
-              setActiveTab(tab)
-            }}
-          >
-            {tab}
-          </a>
-        ))}
-      </div>
+    <div className="w-xl flex flex-col gap-3 border border-base-300 rounded-3xl px-3 py-5">
+      <div className="divider divider-start text-sm my-0">Clean type</div>
+      <CleanTypePicker />
+      <div className="divider divider-start text-sm my-0">Area size</div>
       <AreaPicker />
+      <div className="divider divider-start text-sm my-0">Additional services</div>
       <AddonsList />
       <TotalPrice />
     </div>

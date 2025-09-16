@@ -12,11 +12,11 @@ const AddonsList = () => {
   ]
 
   return (
-    <div>
+    <div className="mb-5">
       {additionalServicesData.map((addon, idx) => (
         <div
           key={idx}
-          className="flex gap-1"
+          className="flex items-center gap-1"
         >
           <input
             className="checkbox checked:checkbox-primary checkbox-sm mb-1"
