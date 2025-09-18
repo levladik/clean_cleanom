@@ -28,7 +28,7 @@ const Calculator = () => {
       <AddonsList />
       <TotalPrice />
       <div className="divider m-0"></div>
-      <button className="btn btn-lg btn-accent rounded-full">Order</button>
+      <button className="btn btn-md w-full btn-accent rounded-full">Order</button>
     </fieldset>
   )
 }
