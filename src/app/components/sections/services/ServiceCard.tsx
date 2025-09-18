@@ -6,12 +6,21 @@
  */
 import clsx from 'clsx'
 import { Circle, CircleCheck, Clock, Users } from 'lucide-react'
+import { useRef } from 'react'
 
 import { ServiceCardProps } from './service.interface'
-import AddonsList from '../calculator/AddonsList'
-import AreaPicker from '../calculator/AreaPicker'
+import ModalCalc from '../common/ModalCalc'
+import ModalForm from '../common/ModalForm'
 
 export default function ServiceCard({ title, cleaners, duration, price, features, popular }: ServiceCardProps) {
+  const modalCalcRef = useRef<HTMLDialogElement>(null)
+  const modalFormRef = useRef<HTMLDialogElement>(null)
+
+  const handleOrder = () => {
+    modalCalcRef.current?.close()
+    modalFormRef.current?.showModal()
+  }
+
   return (
     <>
       <div
@@ -43,7 +52,7 @@ export default function ServiceCard({ title, cleaners, duration, price, features
         {/* CTA Button */}
         <button
           className="btn btn-primary btn-lg w-full uppercase rounded-full shadow-lg hover:shadow-xl mb-3"
-          onClick={() => (document.getElementById('calcModal') as HTMLDialogElement)!.showModal()}
+          onClick={() => modalCalcRef.current?.showModal()}
         >
           Заказать
         </button>
@@ -66,21 +75,11 @@ export default function ServiceCard({ title, cleaners, duration, price, features
       </div>
 
       {/* Modal */}
-      {/* You can open the modal using document.getElementById('ID').showModal() method */}
-      <dialog
-        className="modal modal-bottom sm:modal-middle"
-        id="calcModal"
-      >
-        <div className="modal-box flex flex-col items-start gap-3">
-          <p className="text-sm py-3 opacity-70">Chose details and we call you back</p>{' '}
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-          </form>
-          <AreaPicker />
-          <AddonsList />
-          <button className="btn btn-primary rounded-full">Order</button>
-        </div>
-      </dialog>
+      <ModalCalc
+        ref={modalCalcRef}
+        onOrder={handleOrder}
+      />
+      <ModalForm ref={modalFormRef} />
     </>
   )
 }
