@@ -1,7 +1,7 @@
 /**
- * @component Area Picker
- * @purpose To select area of cleaning.
- * @description Displays the variants of area to clean.
+ * @component AreaPicker
+ * @purpose To select the area size for cleaning services.
+ * @description Displays radio buttons for different area ranges to choose from.
  * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
  */
 
@@ -23,7 +23,7 @@ const AreaPicker = () => {
           key={idx}
           aria-label={area}
           checked={cleaningType === area}
-          className="join-item btn"
+          className="join-item btn btn-xs sm:btn-sm"
           name={area}
           onChange={handleAreaChange}
           type="radio"

@@ -14,15 +14,19 @@ import TotalPrice from './TotalPrice'
 
 const Calculator = () => {
   return (
-    <div className="w-xl flex flex-col gap-3 border border-base-300 rounded-3xl px-3 py-5">
-      <div className="divider divider-start text-sm my-0">Clean type</div>
+    <fieldset className="w-auto max-w-xl m-auto flex flex-col justify-center items-center gap-3 border border-base-300 rounded-3xl px-3 py-5 shadow-2xl">
+      {/* <h2 className="flex items-center gap-1 text-xl">
+        <CalculatorIcon className="text-primary" />
+        Cleaning Calculator
+      </h2> */}
+      <legend className="fieldset-legend text-xl text-primary ms-3">Price Calculator</legend>
       <CleanTypePicker />
-      <div className="divider divider-start text-sm my-0">Area size</div>
       <AreaPicker />
-      <div className="divider divider-start text-sm my-0">Additional services</div>
       <AddonsList />
       <TotalPrice />
-    </div>
+      <div className="divider m-0"></div>
+      <button className="btn btn-lg btn-primary rounded-full">Order</button>
+    </fieldset>
   )
 }
 

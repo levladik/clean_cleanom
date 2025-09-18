@@ -1,3 +1,10 @@
+/**
+ * @component AddonsList
+ * @purpose To display and allow selection of additional cleaning services.
+ * @description Renders a list of checkboxes for various add-on services with their corresponding prices.
+ * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
+ */
+
 import { AdditionalService } from '../services/service.interface'
 
 const AddonsList = () => {
@@ -12,19 +19,19 @@ const AddonsList = () => {
   ]
 
   return (
-    <div className="mb-5">
+    <div>
       {additionalServicesData.map((addon, idx) => (
         <div
           key={idx}
-          className="flex items-center gap-1"
+          className="flex gap-2"
         >
           <input
-            className="checkbox checked:checkbox-primary checkbox-sm mb-1"
+            className="checkbox checked:checkbox-primary checkbox-xs mb-1"
             name={addon.title}
             type="checkbox"
             value={addon.title}
           />
-          <span className="label text-sm">{addon.title}</span>
+          <span className="label text-xs text-wrap mb-1">{addon.title}</span>
         </div>
       ))}
     </div>
