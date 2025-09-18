@@ -1,7 +1,7 @@
 import { Leaf } from 'lucide-react'
 
 import Contacts from './Contacts'
-import Form from './Form'
+import Form from './QuickApplicationForm'
 
 const Application = () => {
   return (

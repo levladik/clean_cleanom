@@ -4,9 +4,9 @@ import { Mail, Phone, User } from 'lucide-react'
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 
-import { ApplicationFormData } from './form.interface'
+import { ApplicationFormData } from './quick-application-form.interface'
 
-const Form = () => {
+const QuickApplicationForm = () => {
   const [formData, setFormData] = useState<ApplicationFormData>({
     name: '',
     email: '',
@@ -102,7 +102,7 @@ const Form = () => {
           <span className="validator-hint mt-0">Please enter a valid email.</span>
 
           {/* Cleaning Type (required) */}
-          <div className="join join-vertical sm:join-horizontal justify-center w-full rounded-full m-auto mb-5">
+          {/* <div className="join join-vertical sm:join-horizontal justify-center w-full rounded-full m-auto mb-5">
             <input
               aria-label="Базовая"
               checked={formData.cleaningType === 'Базовая'}
@@ -130,7 +130,7 @@ const Form = () => {
               type="radio"
               value="Ремонт"
             />
-          </div>
+          </div> */}
 
           {/* Info (optional) */}
           <textarea
@@ -153,4 +153,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default QuickApplicationForm
