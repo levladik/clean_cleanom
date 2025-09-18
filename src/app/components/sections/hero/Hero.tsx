@@ -23,10 +23,12 @@ const Hero = () => {
             convenience.
           </p>
           <div className="flex justify-start space-x-4">
-            <button className="btn btn-primary btn-lg rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <a
+              className="btn btn-outline btn-lg rounded-full"
+              href="#services"
+            >
               Get a Quote
-            </button>
-            <button className="btn btn-outline btn-lg rounded-full">Learn More</button>
+            </a>
           </div>
           {/* Placeholder for rating if available */}
           <div className="mt-8 flex items-center justify-center lg:justify-start space-x-2">

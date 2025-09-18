@@ -20,12 +20,15 @@ const Calculator = () => {
         Cleaning Calculator
       </h2> */}
       <legend className="fieldset-legend text-xl text-primary ms-3">Price Calculator</legend>
+      <div className="divider text-xs m-0 opacity-70">Choose Cleaning Type</div>
       <CleanTypePicker />
+      <div className="divider text-xs m-0 opacity-70">Choose Area</div>
       <AreaPicker />
+      <div className="divider text-xs m-0 opacity-70">Choose Additional Service</div>
       <AddonsList />
       <TotalPrice />
       <div className="divider m-0"></div>
-      <button className="btn btn-lg btn-primary rounded-full">Order</button>
+      <button className="btn btn-lg btn-accent rounded-full">Order</button>
     </fieldset>
   )
 }
