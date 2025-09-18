@@ -14,7 +14,7 @@ import TotalPrice from './TotalPrice'
 
 const Calculator = () => {
   return (
-    <fieldset className="w-auto max-w-xl m-auto flex flex-col justify-center items-center gap-3 border border-base-300 rounded-3xl px-3 py-5 shadow-2xl">
+    <fieldset className="w-auto max-w-xl m-auto flex flex-col items-center gap-3 border border-base-300 rounded-3xl px-3 py-5 shadow-2xl">
       {/* <h2 className="flex items-center gap-1 text-xl">
         <CalculatorIcon className="text-primary" />
         Cleaning Calculator
