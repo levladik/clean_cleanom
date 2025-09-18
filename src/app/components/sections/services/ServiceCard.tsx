@@ -8,52 +8,79 @@ import clsx from 'clsx'
 import { Circle, CircleCheck, Clock, Users } from 'lucide-react'
 
 import { ServiceCardProps } from './service.interface'
+import AddonsList from '../calculator/AddonsList'
+import AreaPicker from '../calculator/AreaPicker'
 
 export default function ServiceCard({ title, cleaners, duration, price, features, popular }: ServiceCardProps) {
   return (
-    <div
-      className={clsx(
-        'w-full max-w-md h-full mx-auto relative rounded-xl bg-base-100 border-2 border-base-300 p-4 flex flex-col gap-2 justify-start items-start shadow-lg',
-        {
-          'ring-2 ring-primary border-none': popular,
-        },
-      )}
-    >
-      {popular ? <span className="badge badge-accent absolute p-3 -top-4 left-1/2 transform -translate-x-1/2">Most popular</span> : null}
-      <div className="flex flex-col mb-5">
-        <h4 className="text-2xl font-bold tracking-wide mb-2">{title}</h4>
-        <div className="flex gap-2 mb-2">
-          <span className="badge badge-md">
-            <Users className="w-4 h-4" />
-            {cleaners}
-          </span>
-          <span className="badge badge-md">
-            <Clock className="w-4 h-4" />
-            {duration}
-          </span>
+    <>
+      <div
+        className={clsx(
+          'w-full max-w-md h-full mx-auto relative rounded-xl bg-base-100 border-2 border-base-300 p-4 flex flex-col gap-2 justify-start items-start shadow-lg',
+          {
+            'ring-2 ring-primary border-none': popular,
+          },
+        )}
+      >
+        {popular ? <span className="badge badge-accent absolute p-3 -top-4 left-1/2 transform -translate-x-1/2">Most popular</span> : null}
+        <div className="flex flex-col mb-5">
+          <h4 className="text-2xl font-bold tracking-wide mb-2">{title}</h4>
+          <div className="flex gap-2 mb-2">
+            <span className="badge badge-md">
+              <Users className="w-4 h-4" />
+              {cleaners}
+            </span>
+            <span className="badge badge-md">
+              <Clock className="w-4 h-4" />
+              {duration}
+            </span>
+          </div>
+          <div>
+            <span className="text-2xl font-black">{price}</span>
+          </div>
         </div>
+
+        {/* CTA Button */}
+        <button
+          className="btn btn-primary btn-lg w-full uppercase rounded-full shadow-lg hover:shadow-xl mb-3"
+          onClick={() => (document.getElementById('calcModal') as HTMLDialogElement)!.showModal()}
+        >
+          Заказать
+        </button>
+
         <div>
-          <span className="text-2xl font-black">{price}</span>
+          <ul className="space-y-2 text-sm">
+            {features.map((feature, index) => (
+              <li
+                key={index}
+                className={clsx('flex items-center gap-2', {
+                  'opacity-60': feature.excluded,
+                })}
+              >
+                {feature.excluded ? <Circle className="w-4 h-4" /> : <CircleCheck className="w-4 h-4 text-primary" />}
+                <span>{feature.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <button className="btn btn-primary btn-lg w-full uppercase rounded-full shadow-lg hover:shadow-xl mb-3">Заказать</button>
-
-      <div>
-        <ul className="space-y-2 text-sm">
-          {features.map((feature, index) => (
-            <li
-              key={index}
-              className={clsx('flex items-center gap-2', {
-                'opacity-60': feature.excluded,
-              })}
-            >
-              {feature.excluded ? <Circle className="w-4 h-4" /> : <CircleCheck className="w-4 h-4 text-primary" />}
-              <span>{feature.text}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+      {/* Modal */}
+      {/* You can open the modal using document.getElementById('ID').showModal() method */}
+      <dialog
+        className="modal modal-bottom sm:modal-middle"
+        id="calcModal"
+      >
+        <div className="modal-box flex flex-col items-start gap-3">
+          <p className="text-sm py-3 opacity-70">Chose details and we call you back</p>{' '}
+          <form method="dialog">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+          <AreaPicker />
+          <AddonsList />
+          <button className="btn btn-primary rounded-full">Order</button>
+        </div>
+      </dialog>
+    </>
   )
 }
