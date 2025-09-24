@@ -5,22 +5,12 @@
  * @techContext Built with Next.js (App Router), Tailwind CSS, and DaisyUI, leveraging WordPress as a headless CMS.
  */
 
-import { AdditionalService } from '../services/service.interface'
+import { addons } from '@/app/lib/calculator/cleaning-types'
 
 const AddonsList = () => {
-  const additionalServicesData: AdditionalService[] = [
-    { title: 'Уборка балконов и террас', price: '1000 дин за 10м2' },
-    { title: 'Мытье окон', price: 'от 2 000 дин' },
-    { title: 'Мытье стеклянных ограждений на террасах', price: 'от 1 000 дин' },
-    { title: 'Мытье духовки, свч, холодильника, вытяжки', price: '1 000 дин/шт' },
-    { title: 'Очистка кофемашин, чайников, грилей', price: 'от 1 000 дин' },
-    { title: 'Удаление плесени и сложных загрязнений', price: 'от 1 000 дин' },
-    { title: 'Привоз профессионального оборудования', price: 'от 3 000 дин' },
-  ]
-
   return (
     <div>
-      {additionalServicesData.map((addon, idx) => (
+      {addons.map((addon, idx) => (
         <div
           key={idx}
           className="flex gap-2"
