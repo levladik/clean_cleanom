@@ -8,7 +8,7 @@
 'use client'
 import { useState } from 'react'
 
-import { cleaningType } from '@/app/lib/calculator/pricing'
+import { cleaningType } from '@/app/lib/calculator/cleaning-types'
 
 const CleanTypePicker = () => {
   const cleaningTypes = Object.values(cleaningType)

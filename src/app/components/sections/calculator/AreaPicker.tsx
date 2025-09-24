@@ -8,12 +8,13 @@
 'use client'
 import { ChangeEvent, useState } from 'react'
 
+import { areas } from '@/app/lib/calculator/cleaning-types'
+
 const AreaPicker = () => {
-  const areas = ['до 50m²', '50-70m²', '70-100m²', 'от 100m²']
-  const [cleaningType, setCleaningType] = useState('до 50m²')
+  const [cleaningArea, setCleaningArea] = useState<string | null>(null)
 
   const handleAreaChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCleaningType(e.target.value)
+    setCleaningArea(e.target.value)
   }
 
   return (
@@ -22,9 +23,9 @@ const AreaPicker = () => {
         <input
           key={idx}
           aria-label={area}
-          checked={cleaningType === area}
+          checked={cleaningArea === area}
           className="join-item btn btn-xs sm:btn-sm"
-          name={area}
+          name="cleaning-area"
           onChange={handleAreaChange}
           type="radio"
           value={area}
