@@ -24,3 +24,5 @@ export const cleaningType = {
     includedServices: ['balcony', 'mold'],
   },
 }
+
+export const areas = ['до 50m²', '50-70m²', '70-100m²', 'от 100m²']
