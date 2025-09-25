@@ -6,15 +6,16 @@
  */
 
 'use client'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent } from 'react'
 
 import { areas } from '@/app/lib/calculator/cleaning-types'
+import { useCalculatorStore } from '@/app/lib/calculator/store'
 
 const AreaPicker = () => {
-  const [cleaningArea, setCleaningArea] = useState<string | null>(null)
+  const { selectedArea, setSelectedArea } = useCalculatorStore()
 
   const handleAreaChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCleaningArea(e.target.value)
+    setSelectedArea(e.target.value)
   }
 
   return (
@@ -23,7 +24,7 @@ const AreaPicker = () => {
         <input
           key={idx}
           aria-label={area}
-          checked={cleaningArea === area}
+          checked={selectedArea === area}
           className="join-item btn btn-xs sm:btn-sm"
           name="cleaning-area"
           onChange={handleAreaChange}
