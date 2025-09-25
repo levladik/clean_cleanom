@@ -1,4 +1,4 @@
-export const cleaningType = {
+export const cleaningTypes = {
   base: {
     name: 'Base',
     minPrice: 5000,
@@ -25,7 +25,7 @@ export const cleaningType = {
   },
 }
 
-export const areas = ['до 50m²', '50-70m²', '70-100m²', 'от 100m²']
+export const areas = ['до 50m²', '51-70m²', '71-100m²', 'от 101m²']
 
 export const addons = [
   { id: 'balcony', title: 'Уборка балконов и террас', price: '1000 дин за 10м2' },
