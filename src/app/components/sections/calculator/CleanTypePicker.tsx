@@ -6,19 +6,20 @@
  */
 
 'use client'
-import { useState } from 'react'
 
-import { cleaningType } from '@/app/lib/calculator/cleaning-types'
+import { cleaningTypes } from '@/app/lib/calculator/cleaning-types'
+import { useCalculatorStore } from '@/app/lib/calculator/store'
 
 const CleanTypePicker = () => {
-  const cleaningTypes = Object.values(cleaningType)
+  const cleaningType = Object.values(cleaningTypes) // [{…}, {…}, {…}]
 
-  const tabs = cleaningTypes.map((type) => ({
-    name: type.name,
-    tooltip: type.description,
+  const tabs = cleaningType.map((type) => ({
+    type, // {...}
+    name: type.name, // 'Base'
+    tooltip: type.description, // 'Cухая и влажная уборка помещений...'
   }))
 
-  const [activeTab, setActiveTab] = useState('Deep')
+  const { selectedType, setSelectedType } = useCalculatorStore() // {...}
 
   return (
     <div className="join">
@@ -31,10 +32,10 @@ const CleanTypePicker = () => {
         >
           <input
             aria-label={tab.name}
-            checked={activeTab === tab.name}
+            checked={selectedType === tab.type}
             className="join-item btn btn-xs sm:btn-sm"
             name={tab.name}
-            onChange={(e) => setActiveTab(e.target.value)}
+            onChange={() => setSelectedType(tab.type)}
             type="radio"
             value={tab.name}
           />
